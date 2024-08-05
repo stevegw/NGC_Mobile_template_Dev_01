@@ -1179,7 +1179,6 @@
                                   "attributes": {
                                     "twx-widget": "",
                                     "widget-id": "popupSteps",
-                                    "is-visible-at-designtime": "false",
                                     "widget-name": "popupSteps",
                                     "is-widget-container": "true",
                                     "class": "InfoPanel",
@@ -1343,7 +1342,8 @@
                                                     "twx-widget": "",
                                                     "widget-id": "row-11",
                                                     "widget-name": "row-11",
-                                                    "is-widget-container": "true"
+                                                    "is-widget-container": "true",
+                                                    "rowclass": "steps-title-row"
                                                   },
                                                   "name": "twx-row",
                                                   "children": [
