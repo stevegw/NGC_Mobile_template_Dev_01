@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="EngineBlock" motionHint="adaptive" trackingMode="default"/>
+
+</Tracking>
+
+<Assembly name="EngineBlocks_assembly" assemblyId="4535c7f931c34958af203f2bd7a3db53">
+<Part name="EngineBlock" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0001" translation="-0.113424 0.0977634 0.786012" rotation="AD: 0.7542149732343475 -0.9148423763788195 1.3334899778879017 212.342" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>

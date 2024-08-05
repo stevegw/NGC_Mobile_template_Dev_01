@@ -1,0 +1,61 @@
+{
+  "name": "NGC_Mobile_template_Dev_01",
+  "projectType": "AR",
+  "viewType": "ar",
+  "fileName": "NGC_Mobile_template_Dev_01",
+  "thingworxServer": "http://pp-2407122122tn.portal.ptc.io:8080",
+  "viewTemplateFileName": "home-ar.json",
+  "state": {
+    "orientation": "landscape"
+  },
+  "targets": {
+    "phone": {
+      "components": [
+        {
+          "name": "Home",
+          "fileName": "Home",
+          "showInMainMenu": true,
+          "viewType": "ar",
+          "title": "Home"
+        },
+        {
+          "name": "startPoint",
+          "fileName": "startPoint",
+          "showInMainMenu": true,
+          "viewType": "mobile-2D",
+          "title": "startPoint"
+        }
+      ],
+      "images": []
+    },
+    "shared": {
+      "components": [
+        {
+          "name": "Data",
+          "fileName": "Data"
+        }
+      ],
+      "images": [],
+      "styles": [
+        {
+          "name": "App",
+          "fileName": "App",
+          "fileExt": "scss"
+        }
+      ]
+    }
+  },
+  "device": {
+    "name": "ipad",
+    "width": "1024",
+    "height": "768"
+  },
+  "mainNavigationMenuStyle": "noMenu",
+  "resourceDirectory": "src/phone/resources",
+  "resourceRuntimeDir": "app/resources",
+  "fontRuntimeDir": "../fonts",
+  "fontDesigntimeDir": "../dist/fonts",
+  "theme": "twx-light",
+  "version": "9.21.3.0",
+  "id": "cf38ccc7-abe2-4e25-901c-09af0a4e5ebf"
+}

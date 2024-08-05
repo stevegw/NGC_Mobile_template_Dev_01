@@ -1,0 +1,363 @@
+/*
+   Add additional application styles or override styles provided by the selected theme or widgets.
+   You can include SASS syntax, as this file is built to a css file using a SASS processor.
+
+   Available Variables:
+
+   Variable Name      Description
+   ----------------------------------------------------
+   $resources         References the directory where resources reside (images, etc.), this directory may be different
+                      between the design time and the runtime directory structure.
+
+                      Example: background-image: url(#{$resources}/Uploaded/image.png)
+
+   $font-path        References the relative directory where fonts are stored.
+*/
+
+
+$font-path:    url(#{$resources}/Uploaded/sowiplayer);
+
+$mainColor: rgba(255,255,255,1);
+
+$mainborder-color: rgb(0, 0, 0);
+$mainbackground-color: rgba(0, 0, 0, 1); // oldColor -> rgba(243,194,20,1); //border for panels
+
+$mainsecondary-color: rgba(255,243,1,1);
+
+
+//$primary-color:  rgba(32,109,22,0.75); //green
+// $primary-color:  rgba(56,126,245,0.75); //blue
+
+$primary-color: rgba(217, 217, 217, 1); //oldColor -> rgba(29,67,156,1.0); //blue //background for panel
+$primary-logo-background-color: rgb(10, 10, 10); //oldColor -> rgba(29,67,156,1.0); //blue //background for panel
+$mainbuttonbackground-color: rgb(0, 0, 0); //oldColor -> rgba(13,19,0,0.75);//rgba(155,155,155,.8); //background color
+$mainbuttoncolor: rgba(255, 255, 255, 1); //#FFFFFF //oldColor -> rgba(216,255,255,1); //font color
+$mainbutton-border-color: rgba(0, 38, 154, 1); //#2483BB // oldColor -> blue; //border color
+
+$maindatagridbackground-color:  rgba(0, 123, 40, 0.75);
+
+$mainitemcolor: rgba(0,0,0,1);
+
+//$mainitembackground-color: rgba(249,251,184,1); //yellow
+$mainitembackground-color: rgba(255,255,255,1); //white
+
+$mainitemborder-color: rgba(0,123,40,0.5);
+
+$maintrselected: rgba(99, 77, 1, 0.75);
+$maintrbackground-color: rgba(162, 26, 2, 0.75);
+
+$mainfont-family: "futura-pt", Arial, sans-serif; 
+
+
+.intro-label {
+	color: black !important;
+  font-weight: bold ;
+	//alignment: center !important;
+}
+
+.intro-label-wo {
+	color: black !important;
+  font-weight: bold ;
+  font-size: larger;
+	//alignment: center !important;
+}
+
+.issues-label {
+	color: black !important;
+  font-weight: bold ;
+	//alignment: center !important;
+}
+
+.steps-title-row {
+
+  border-width: 1px  0px  1px 0px !important;
+  border-style: solid !important;
+  border-color: $mainborder-color !important;
+  padding: 2px 2px 2px 2px !important;
+
+}
+
+.simple-label {
+	color: black !important;
+	//alignment: center !important;
+}
+
+
+.DataGrid thead{
+ display: block;
+}
+
+.DataGrid tbody{
+ display: block;
+ width: 100%;
+ overflow: auto;
+ max-height: 60vh;
+}
+.DataGrid th {   
+ background-color: $maindatagridbackground-color !important; //  pink;
+ font-size: 14px;
+ font-weight: bold;
+ opacity: 1;
+}
+  
+.DataGrid th:nth-child(1), .DataGrid td:nth-child(1){
+ width: 100%;
+}
+
+tr.selected {
+background-color: $maintrselected !important; // pink !important;
+  color:white;
+}
+tr:hover {
+background-color: $maintrbackground-color!important;
+
+}
+
+.logo {
+  background-color:  $primary-logo-background-color !important;
+
+}
+.InfoPanel {
+
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-style: solid;
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  border-left-width: 3px;
+  border-right-width: 3px;
+  border-color: $mainbackground-color !important;  
+  background: $primary-color !important;
+  color: $mainColor;
+  font-family: $mainfont-family;
+  font-size: 16px;
+  animation: fadein 2s;
+  
+}
+
+.popover {
+  height: 70px !important;
+  opacity:0.5 !important; 
+  width: 180px !important;
+  color: $mainColor;
+  background-color: $primary-color;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.MessagePopup {
+  
+    opacity:0.95 !important; 
+    color: $mainsecondary-color;
+    background-color: $primary-color;
+   // font-size: calc(0.625em + 1vw) ;//10px;
+    font-family: $mainfont-family !important;
+    //font-weight: bold !important;
+
+} 
+
+
+.repeater-cell-sxsl {
+  background-color: $primary-color;
+  border-bottom: transparent !important;
+  //background: transparent !important;
+  padding: 2px 2px 2px 2px !important;
+  //background-color: rgba(248,255,0,0.25);
+  color: black;
+  //hover: background-color: yellow !important;
+  // pointer-events: none !important;
+ 
+   
+ }
+
+
+.repeater-cell:hover {
+
+  background-color:yellow;
+}
+
+
+.twx-data-grid td {
+  height: unset ;
+  padding: 0px 5px !important;
+
+}
+
+
+
+.twx-data-grid th {
+  height: unset ;
+  padding: 0px 5px !important;
+
+}
+
+
+.button {
+   border-color: $mainbutton-border-color !important;
+   color:  $mainbuttoncolor !important;
+   background-color: $mainbuttonbackground-color !important;
+ }
+
+
+.item {
+   border-color: $mainitemborder-color!important;
+   color: $mainitemcolor !important;
+   background-color:  $mainitembackground-color !important;
+ }
+
+.item-select select {
+   border-color: $mainitemborder-color!important;
+   color: $mainitemcolor !important;
+   background-color: $mainitembackground-color !important;
+ }
+
+
+.item-checkbox {
+   border-color:  $mainitemborder-color!important;
+   color:  $mainitemcolor  !important;
+   background-color: $primary-color !important;//  $mainitembackground-color !important;
+ }
+
+
+
+
+
+.slide4in{
+  position: fixed;
+     //right: 300px;  
+  //bottom: 100px !important;
+  //width: 100px !important;
+  height: 50px;
+  background: #6dbe4e;
+  //background: radial-gradient(circle at 0 100%,#555599 0,#99dd0b 75%);
+  //background-image: url(#{$resources}/Uploaded/menu_top_001.png);
+  //background-size: auto 50px;
+  //background-repeat: no-repeat;
+  animation-name: slide4in_anim;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; 
+  animation-timing-function: ease-in-out;
+  border-radius: 25px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  z-index: 1;
+
+}
+
+
+.slide4out{
+  position: fixed;
+    //right: 100px;  
+  //bottom: 100px;
+  width:300px !important;
+  //height: 40vw;
+  background: #6dbe4e;
+  //background: radial-gradient(circle at 0 100%,#555599 0,#99dd0b 75%);
+  //background-image: url(#{$resources}/Uploaded/menu_top_001.png);
+  //background-size: auto 50px;
+  //background-repeat: no-repeat;
+  animation-name: slide4out_anim;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; 
+  animation-timing-function: ease-in-out;
+  border-radius: 25px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  z-index: 1;
+
+}
+
+
+
+@keyframes slide4out_anim {
+  from {
+    opacity: 1;
+  //background: #ff0000;
+  background: radial-gradient(circle at 0% 0%, #505a5c 0%, #018340 50%, #6dbe4e 100%);    
+      width: 50px;
+    top: 100px;
+    right: 0px;
+    height: 50px;
+    padding: 0px;
+ }
+    50%{
+    opacity: 1;
+ //background: #ff0000;
+  background: radial-gradient(circle at 0% 0%, #505a5c 0%, #018340 50%, #6dbe4e 100%);    
+  //background-image: linear-gradient(180deg,#fcc73d,#a75a28 50%),linear-gradient(180deg,#fcc73d 40%,#a75a28 80%);      
+
+      width: 150px;
+    top: 100px;
+    right: 50px;
+    height: 50px;
+    padding: 5px;      
+    }  
+  to {
+    opacity: 1;
+  //background: #ff0000;
+  background: radial-gradient(circle at 0% 0%, #505a5c 0%, #018340 50%, #6dbe4e 100%);    
+  //background-image: linear-gradient(180deg,#fcc73d,#a75a28 50%),linear-gradient(180deg,#fcc73d 40%,#a75a28 80%);      
+      width: 150px;
+    top: 50px;
+    right: 50px;
+    height: 200px;
+    padding: 5px;
+}
+}
+  
+  @keyframes slide4in_anim {
+  from {
+    opacity: 1;
+  //background: #ff0000;
+  background: radial-gradient(circle at 0% 0%, #505a5c 0%, #018340 50%, #6dbe4e 100%);    
+  //background-image: linear-gradient(180deg,#fcc73d,#a75a28 50%),linear-gradient(180deg,#fcc73d 40%,#a75a28 80%);      
+
+      width: 150px;
+    top: 50px;
+    right: 50px;
+    height: 200px;
+    padding: 5px;
+ }
+    50%{
+    opacity: 1;
+  //background: #ff0000;
+  background: radial-gradient(circle at 0% 0%, #505a5c 0%, #018340 50%, #6dbe4e 100%);    
+  //background-image: linear-gradient(180deg,#fcc73d,#a75a28 50%),linear-gradient(180deg,#fcc73d 40%,#a75a28 80%);      
+
+      width: 150px;
+    top: 50px;
+    right: 50px;
+    height: 50px;
+    padding: 5px;      
+    }
+  to {
+    opacity: 1;
+  //background: #ff0000;
+  background: radial-gradient(circle at 0% 0%, #505a5c 0%, #018340 50%, #6dbe4e 100%);    
+      width: 50px;
+    top: 100px;
+    right: -40px;
+    height: 50px;
+    padding: 0px;
+}
+}
+
+
+
+
+
+
+.home-screen {
+  background-image: url(#{$resources}/Uploaded/HomePage.png) !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  background-position: center !important;
+  border: unset !important;
+  opacity: 1 !important;
+  width: 100vw;
+  height: 100vh;
+}

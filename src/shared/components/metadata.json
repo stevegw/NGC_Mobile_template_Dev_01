@@ -1,0 +1,101 @@
+{
+  "name": "NGC_Mobile_template_Dev_01",
+  "version": "1.0.0",
+  "requires": [
+    "w320dp"
+  ],
+  "experiences": [
+    {
+      "vumark": "",
+      "experienceType": "none",
+      "id": 1,
+      "index-keys": [],
+      "title": {
+        "en": "NGC_Mobile_template_001"
+      },
+      "description": {
+        "en": "",
+        "en-US": ""
+      },
+      "requires": [
+        "AR-tracking"
+      ],
+      "tags": [],
+      "icon": "",
+      "viewName": "startPoint",
+      "url-template": "index.html?expId=1",
+      "entryPoint": "index.html?expId=1",
+      "thumbnail": "",
+      "thingTemplateName": ""
+    }
+  ],
+  "accessType": "private",
+  "widgetsUsage": [
+    {
+      "timestamp": "2024-07-17T15:03:57.447Z",
+      "action": "PUBLISH",
+      "usage": {
+        "twx-view": 2,
+        "twx-dt-view": 1,
+        "twx-octosxslplayer": 1,
+        "twx-overlay": 1,
+        "twx-overlay-container": 5,
+        "twx-overlay-body": 1,
+        "twx-gridlayout": 4,
+        "twx-row": 23,
+        "twx-col": 27,
+        "twx-image2": 4,
+        "twx-popup": 2,
+        "twx-label": 7,
+        "twx-tabs": 1,
+        "twx-tab": 2,
+        "sb-pdf": 1,
+        "twx-barcode-scanner": 1
+      }
+    },
+    {
+      "timestamp": "2024-08-01T17:51:49.779Z",
+      "action": "PUBLISH",
+      "usage": {
+        "twx-view": 2,
+        "twx-dt-view": 1,
+        "twx-octosxslplayer": 1,
+        "twx-overlay": 1,
+        "twx-overlay-container": 5,
+        "twx-gridlayout": 10,
+        "twx-row": 50,
+        "twx-col": 73,
+        "twx-image2": 11,
+        "twx-overlay-body": 1,
+        "twx-popup": 7,
+        "twx-label": 37,
+        "twx-button": 6,
+        "twx-repeater": 1,
+        "twx-barcode-scanner": 1
+      }
+    },
+    {
+      "timestamp": "2024-08-05T13:48:53.936Z",
+      "action": "LATEST_SAVE",
+      "usage": {
+        "twx-view": 2,
+        "twx-dt-view": 1,
+        "twx-octosxslplayer": 1,
+        "twx-overlay": 1,
+        "twx-overlay-container": 5,
+        "twx-gridlayout": 10,
+        "twx-row": 51,
+        "twx-col": 76,
+        "twx-image2": 12,
+        "twx-overlay-body": 1,
+        "twx-popup": 7,
+        "twx-label": 37,
+        "twx-button": 8,
+        "twx-repeater": 1,
+        "twx-text-input": 1,
+        "twx-barcode-scanner": 1
+      }
+    }
+  ],
+  "designedfor": []
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="engineblockwpistons" motionHint="adaptive" trackingMode="car" optimizeTrackingFor="default"/>
+
+</Tracking>
+
+<Assembly name="engineblockwpistonss_assembly" assemblyId="8161f2a26f5244969c08855da6e8c74c">
+<Part name="engineblockwpistons" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="GuideView_0000" translation="0.0792145 0.0732678 0.657304" rotation="AD: -0.872068 -0.544989 2.14653 169.371" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>

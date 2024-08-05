@@ -1,0 +1,381 @@
+{
+  "thumbnail": "defaultThumb.png",
+  "versionId": 2,
+  "publishDate": "2024-08-02T16:18:00.128Z",
+  "sxslVersion": "2.0",
+  "statements": [
+      {
+          "stepId": "6d16f81b-048f-4b0f-b288-0153d18a3e41",
+          "type": "Step"
+      },
+      {
+          "stepId": "dc56a31f-2e04-43c1-af3b-70a91faf4757",
+          "type": "Step"
+      },
+      {
+          "stepId": "3718df5b-ba43-4761-8f25-15a2ceeb5584",
+          "type": "Step"
+      },
+      {
+          "stepId": "d174e8d9-e58e-46af-91d6-7b98e5848d3f",
+          "type": "Step"
+      },
+      {
+          "stepId": "5b4018a4-2ef6-4892-87db-472fedc70c96",
+          "type": "Step"
+      }
+  ],
+  "procName": "Procedure_wdfx1JuL",
+  "id": "d3d20da1-5c94-4a36-b495-f0616065b259",
+  "title": {
+      "resources": [
+          {
+              "mimeType": "text/plain",
+              "text": "Acknowledgement Test - wInputs"
+          }
+      ]
+  },
+  "steps": [
+      {
+          "stepdesc": "This should be a Scan",
+          "id": "6d16f81b-048f-4b0f-b288-0153d18a3e41",
+          "title": {
+              "resources": [
+                  {
+                      "mimeType": "text/plain",
+                      "text": "Normal WO Scan"
+                  }
+              ]
+          },
+          "actions": [
+              {
+                  "instructions": {
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "Scan WO"
+                          }
+                      ]
+                  },
+                  "details": {
+                      "hint": {
+                          "instructions": {
+                              "resources": [
+                                  {
+                                      "mimeType": "text/plain",
+                                      "text": "Scan Work Order"
+                                  }
+                              ]
+                          }
+                      },
+                      "maxCaptures": "",
+                      "ID": "WorkOrderNumber",
+                      "type": "CaptureString",
+                      "title": {
+                          "resources": [
+                              {
+                                  "mimeType": "text/plain",
+                                  "text": "Work Order Scan"
+                              }
+                          ]
+                      },
+                      "required": false
+                  },
+                  "id": "77c71cd5-b3bd-4886-bd6f-fd1b860a2a02",
+                  "actiontitle": "asdf",
+                  "type": "Verify"
+              }
+          ]
+      },
+      {
+          "stepdesc": "A Step with a Confirmation Test",
+          "acknowledgement": {
+              "type": "Confirmation"
+          },
+          "id": "dc56a31f-2e04-43c1-af3b-70a91faf4757",
+          "title": {
+              "resources": [
+                  {
+                      "mimeType": "text/plain",
+                      "text": "Confirmation Test"
+                  }
+              ]
+          },
+          "actions": [
+              {
+                  "instructions": {
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "Just a Test of a Confirmation Acknowledgement. Just a Test of a Confirmation Acknowledgement. Just a Test of a Confirmation Acknowledgement. Just a Test of a Confirmation Acknowledgement. Just a Test of a Confirmation Acknowledgement. Just a Test of a Confirmation Acknowledgement. Just a Test of a Confirmation Acknowledgement. "
+                          }
+                      ]
+                  },
+                  "details": {
+                      "hint": {
+                          "instructions": {
+                              "resources": [
+                                  {
+                                      "mimeType": "text/plain",
+                                      "text": "Enter Text"
+                                  }
+                              ]
+                          }
+                      },
+                      "maxCaptures": "",
+                      "ID": "",
+                      "type": "CaptureString",
+                      "title": {
+                          "resources": [
+                              {
+                                  "mimeType": "text/plain",
+                                  "text": "Basic Text Entry"
+                              }
+                          ]
+                      },
+                      "required": false
+                  },
+                  "id": "4b11988b-ee0b-4c9d-9519-28b453272ac6",
+                  "actiontitle": "Ac1",
+                  "type": "Verify"
+              },
+              {
+                  "instructions": {
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "Another Action (with no Inputs)"
+                          }
+                      ]
+                  },
+                  "id": "20e6c94e-7658-49ff-acf3-c032beb9f003",
+                  "actiontitle": "ac2s1",
+                  "type": "Verify"
+              }
+          ]
+      },
+      {
+          "stepdesc": "A simple Pass Fail Step",
+          "acknowledgement": {
+              "type": "PassFail"
+          },
+          "id": "3718df5b-ba43-4761-8f25-15a2ceeb5584",
+          "title": {
+              "resources": [
+                  {
+                      "mimeType": "text/plain",
+                      "text": "PassFail Simple"
+                  }
+              ]
+          },
+          "actions": [
+              {
+                  "instructions": {
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "A Step Action with a simple pass fail"
+                          }
+                      ]
+                  },
+                  "id": "a98e1fe4-8805-4b35-b989-98ed49e379ec",
+                  "actiontitle": "S2Ac1",
+                  "type": "Verify"
+              }
+          ]
+      },
+      {
+          "stepdesc": "A step with a complex Pass Fail",
+          "acknowledgement": {
+              "reasonCodes": [
+                  {
+                      "code": "1",
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "not good"
+                          }
+                      ]
+                  },
+                  {
+                      "code": "2",
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "bad"
+                          }
+                      ]
+                  },
+                  {
+                      "code": "3",
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "ugly"
+                          }
+                      ]
+                  }
+              ],
+              "type": "PassFail",
+              "reasonType": "Code"
+          },
+          "id": "d174e8d9-e58e-46af-91d6-7b98e5848d3f",
+          "title": {
+              "resources": [
+                  {
+                      "mimeType": "text/plain",
+                      "text": "A Complex PassFail"
+                  }
+              ]
+          },
+          "actions": [
+              {
+                  "instructions": {
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "An Action to test the Complex Pass Fail Acknowledgement"
+                          }
+                      ]
+                  },
+                  "id": "1ad53b6c-21d1-4a09-b7ad-c1aba4e6f463",
+                  "actiontitle": "S3Ac1",
+                  "type": "Verify"
+              },
+              {
+                  "instructions": {
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "Another Action with Inputs"
+                          }
+                      ]
+                  },
+                  "details": {
+                      "hint": {
+                          "instructions": {
+                              "resources": [
+                                  {
+                                      "mimeType": "text/plain",
+                                      "text": "Enter Text"
+                                  }
+                              ]
+                          }
+                      },
+                      "maxCaptures": "",
+                      "ID": "",
+                      "type": "CaptureString",
+                      "title": {
+                          "resources": [
+                              {
+                                  "mimeType": "text/plain",
+                                  "text": "Basic Text Entry"
+                              }
+                          ]
+                      },
+                      "required": false
+                  },
+                  "id": "37c55afd-f6ad-43ad-9949-422210d511ae",
+                  "actiontitle": "LastStepLastAction",
+                  "type": "Verify"
+              }
+          ]
+      },
+      {
+          "stepdesc": "Picture Step",
+          "id": "5b4018a4-2ef6-4892-87db-472fedc70c96",
+          "title": {
+              "resources": [
+                  {
+                      "mimeType": "text/plain",
+                      "text": "Last Step w Pic"
+                  }
+              ]
+          },
+          "actions": [
+              {
+                  "instructions": {
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "Take a Picture"
+                          }
+                      ]
+                  },
+                  "details": {
+                      "hint": {
+                          "resources": [
+                              {
+                                  "mimeType": "text/plain",
+                                  "text": "Say Cheese"
+                              }
+                          ]
+                      },
+                      "maxCaptures": "",
+                      "ID": "PictureProof",
+                      "type": "CaptureImage",
+                      "title": {
+                          "resources": [
+                              {
+                                  "mimeType": "text/plain",
+                                  "text": "Take Picture"
+                              }
+                          ]
+                      },
+                      "required": false
+                  },
+                  "id": "05a0fa10-0d20-4757-b0a1-34bafeccb2f7",
+                  "actiontitle": "Picture Action",
+                  "type": "Verify"
+              },
+              {
+                  "instructions": {
+                      "resources": [
+                          {
+                              "mimeType": "text/plain",
+                              "text": "Test of number Input"
+                          }
+                      ]
+                  },
+                  "details": {
+                      "hint": {
+                          "instructions": {
+                              "resources": [
+                                  {
+                                      "mimeType": "text/plain",
+                                      "text": "Enter Number"
+                                  }
+                              ]
+                          }
+                      },
+                      "maxCaptures": "",
+                      "ID": "",
+                      "type": "CaptureNumber",
+                      "title": {
+                          "resources": [
+                              {
+                                  "mimeType": "text/plain",
+                                  "text": "Basic Number Entry"
+                              }
+                          ]
+                      },
+                      "required": false
+                  },
+                  "id": "43acef06-46e5-441c-bbb6-743e37a0411d",
+                  "actiontitle": "Number Input",
+                  "type": "Verify"
+              }
+          ]
+      }
+  ],
+  "introduction": {
+      "resources": [
+          {
+              "mimeType": "text/plain",
+              "text": "A Procedure to test Acknowledgements"
+          }
+      ]
+  },
+  "orgId": "80d2567c-d0b2-4b72-8bc6-e021f579485a",
+  "versionDisplayName": 2
+}

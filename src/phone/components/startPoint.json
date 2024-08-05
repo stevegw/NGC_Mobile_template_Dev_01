@@ -1,0 +1,2249 @@
+{
+  "attributes": {
+    "twx-widget": "",
+    "widget-id": "view-2",
+    "widget-name": "view-2",
+    "is-widget-container": "true",
+    "viewtype": "mobile-2D"
+  },
+  "children": [
+    {
+      "name": "twx-container-content",
+      "children": [
+        {
+          "attributes": {
+            "twx-widget": "",
+            "widget-id": "gridLayout-1",
+            "widget-name": "gridLayout-1",
+            "is-widget-container": "true"
+          },
+          "name": "twx-gridlayout",
+          "children": [
+            {
+              "attributes": {
+                "class": "twx-widget-bindings",
+                "slot": "bindings",
+                "ptc-rendered": ""
+              },
+              "name": "twx-widget-bindings"
+            },
+            {
+              "name": "twx-container-content",
+              "children": [
+                {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "row-1",
+                    "widget-name": "row-1",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-row",
+                  "children": [
+                    {
+                      "attributes": {
+                        "class": "twx-widget-bindings",
+                        "slot": "bindings",
+                        "ptc-rendered": ""
+                      },
+                      "name": "twx-widget-bindings"
+                    },
+                    {
+                      "name": "twx-container-content",
+                      "children": [
+                        {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-1",
+                            "widget-name": "column-1",
+                            "is-widget-container": "true",
+                            "justification": "center",
+                            "alignment": "flex-start"
+                          },
+                          "name": "twx-col",
+                          "children": [
+                            {
+                              "attributes": {
+                                "class": "twx-widget-bindings",
+                                "slot": "bindings",
+                                "ptc-rendered": ""
+                              },
+                              "name": "twx-widget-bindings"
+                            },
+                            {
+                              "name": "twx-container-content",
+                              "children": [
+                                {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "image-4",
+                                    "widget-name": "image-4",
+                                    "click-expression": "checkForScan();",
+                                    "imgsrc": "Uploaded/sowiplayer/restart.png",
+                                    "width": "40px",
+                                    "visible": "false"
+                                  },
+                                  "name": "twx-image2"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-13",
+                            "widget-name": "column-13",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-col",
+                          "children": [
+                            {
+                              "attributes": {
+                                "class": "twx-widget-bindings",
+                                "slot": "bindings",
+                                "ptc-rendered": ""
+                              },
+                              "name": "twx-widget-bindings"
+                            },
+                            {
+                              "name": "twx-container-content"
+                            }
+                          ]
+                        },
+                        {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-14",
+                            "widget-name": "column-14",
+                            "is-widget-container": "true",
+                            "justification": "center",
+                            "alignment": "flex-end"
+                          },
+                          "name": "twx-col",
+                          "children": [
+                            {
+                              "attributes": {
+                                "class": "twx-widget-bindings",
+                                "slot": "bindings",
+                                "ptc-rendered": ""
+                              },
+                              "name": "twx-widget-bindings"
+                            },
+                            {
+                              "name": "twx-container-content",
+                              "children": [
+                                {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "image-2",
+                                    "widget-name": "image-2",
+                                    "click-expression": "toggleInfo();",
+                                    "imgsrc": "Uploaded/sowiplayer/wp_info_show.png",
+                                    "width": "40px",
+                                    "visible": "false"
+                                  },
+                                  "name": "twx-image2"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "row-2",
+                    "widget-name": "row-2",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-row",
+                  "children": [
+                    {
+                      "attributes": {
+                        "class": "twx-widget-bindings",
+                        "slot": "bindings",
+                        "ptc-rendered": ""
+                      },
+                      "name": "twx-widget-bindings"
+                    },
+                    {
+                      "name": "twx-container-content",
+                      "children": [
+                        {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-2",
+                            "widget-name": "column-2",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-col",
+                          "children": [
+                            {
+                              "attributes": {
+                                "class": "twx-widget-bindings",
+                                "slot": "bindings",
+                                "ptc-rendered": ""
+                              },
+                              "name": "twx-widget-bindings"
+                            },
+                            {
+                              "name": "twx-container-content",
+                              "children": [
+                                {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "popupHelp",
+                                    "is-visible-at-designtime": "false",
+                                    "widget-name": "popupHelp",
+                                    "is-widget-container": "true",
+                                    "class": "InfoPanel",
+                                    "width": "40%",
+                                    "centered": "false",
+                                    "top": "50px",
+                                    "right": "1px"
+                                  },
+                                  "name": "twx-popup",
+                                  "children": [
+                                    {
+                                      "attributes": {
+                                        "class": "twx-widget-bindings",
+                                        "slot": "bindings",
+                                        "ptc-rendered": ""
+                                      },
+                                      "name": "twx-widget-bindings"
+                                    },
+                                    {
+                                      "name": "twx-container-content",
+                                      "children": [
+                                        {
+                                          "attributes": {
+                                            "twx-widget": "",
+                                            "widget-id": "gridLayout-4",
+                                            "widget-name": "gridLayout-4",
+                                            "is-widget-container": "true"
+                                          },
+                                          "name": "twx-gridlayout",
+                                          "children": [
+                                            {
+                                              "attributes": {
+                                                "class": "twx-widget-bindings",
+                                                "slot": "bindings",
+                                                "ptc-rendered": ""
+                                              },
+                                              "name": "twx-widget-bindings"
+                                            },
+                                            {
+                                              "name": "twx-container-content",
+                                              "children": [
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-19",
+                                                    "widget-name": "row-19",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-23",
+                                                            "widget-name": "column-23",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-2",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-2",
+                                                                    "text": "General Settings"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-43",
+                                                            "widget-name": "column-43",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-end"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "image-5",
+                                                                    "widget-name": "image-5",
+                                                                    "imgsrc": "Uploaded/sowiplayer/wpcoe_close.png"
+                                                                  },
+                                                                  "name": "twx-image2",
+                                                                  "children": [
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1722519925070",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Image",
+                                                                        "source-name": "image-5",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "popupHelp",
+                                                                        "handler-service": "hidepopup",
+                                                                        "handler-path": "app.view[\"startPoint\"].wdg[\"popupHelp\"].svc.hidepopup"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-20",
+                                                    "widget-name": "row-20",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-24",
+                                                            "widget-name": "column-24",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-10",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-10",
+                                                                    "text": "Session ID"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-42",
+                                                            "widget-name": "column-42",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-11",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-11",
+                                                                    "text": "..."
+                                                                  },
+                                                                  "name": "twx-label",
+                                                                  "children": [
+                                                                    {
+                                                                      "attributes": {
+                                                                        "databind-id": "db-1721843545690",
+                                                                        "source-type": "data",
+                                                                        "source-label": "",
+                                                                        "source-name": "sessionId",
+                                                                        "source-item-type": "value",
+                                                                        "source-item-name": "sessionId",
+                                                                        "source-item-field-name": "",
+                                                                        "binding-type": "custom_field",
+                                                                        "from-expression": "app.params['sessionId']",
+                                                                        "to-property": "text",
+                                                                        "base-type": "",
+                                                                        "shape": ""
+                                                                      },
+                                                                      "name": "twx-databind"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-21",
+                                                    "widget-name": "row-21",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-25",
+                                                            "widget-name": "column-25",
+                                                            "is-widget-container": "true"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content"
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-22",
+                                                    "widget-name": "row-22",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-26",
+                                                            "widget-name": "column-26",
+                                                            "is-widget-container": "true"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content"
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-23",
+                                                    "widget-name": "row-23",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-27",
+                                                            "widget-name": "column-27",
+                                                            "is-widget-container": "true"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content"
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "popupIntro",
+                                    "widget-name": "popupIntro",
+                                    "is-widget-container": "true",
+                                    "class": "InfoPanel",
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "centered": "false",
+                                    "bottom": "1px",
+                                    "visible": "true"
+                                  },
+                                  "name": "twx-popup",
+                                  "children": [
+                                    {
+                                      "attributes": {
+                                        "class": "twx-widget-bindings",
+                                        "slot": "bindings",
+                                        "ptc-rendered": ""
+                                      },
+                                      "name": "twx-widget-bindings"
+                                    },
+                                    {
+                                      "name": "twx-container-content",
+                                      "children": [
+                                        {
+                                          "attributes": {
+                                            "twx-widget": "",
+                                            "widget-id": "gridLayout-5",
+                                            "widget-name": "gridLayout-5",
+                                            "is-widget-container": "true"
+                                          },
+                                          "name": "twx-gridlayout",
+                                          "children": [
+                                            {
+                                              "attributes": {
+                                                "class": "twx-widget-bindings",
+                                                "slot": "bindings",
+                                                "ptc-rendered": ""
+                                              },
+                                              "name": "twx-widget-bindings"
+                                            },
+                                            {
+                                              "name": "twx-container-content",
+                                              "children": [
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-24",
+                                                    "widget-name": "row-24",
+                                                    "is-widget-container": "true",
+                                                    "rowclass": "logo"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-28",
+                                                            "widget-name": "column-28",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "image-3",
+                                                                    "widget-name": "image-3",
+                                                                    "imgsrc": "Uploaded/sowiplayer/ngc_logo.png"
+                                                                  },
+                                                                  "name": "twx-image2"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-25",
+                                                    "widget-name": "row-25",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-29",
+                                                            "widget-name": "column-29",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-7",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-7",
+                                                                    "text": "Procedure Name"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-37",
+                                                            "widget-name": "column-37",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "labelProcDescription",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "labelProcDescription",
+                                                                    "text": "...",
+                                                                    "class": "intro-label"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-26",
+                                                    "widget-name": "row-26",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-30",
+                                                            "widget-name": "column-30",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-8",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-8",
+                                                                    "text": "Version"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-38",
+                                                            "widget-name": "column-38",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "labelProcVersion",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "labelProcVersion",
+                                                                    "text": "...",
+                                                                    "class": "issues-label"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-27",
+                                                    "widget-name": "row-27",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-31",
+                                                            "widget-name": "column-31",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-9",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-9",
+                                                                    "text": "Publish Date"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-39",
+                                                            "widget-name": "column-39",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "labelProcPubDate",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "labelProcPubDate",
+                                                                    "text": "...",
+                                                                    "class": "issues-label"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-28",
+                                                    "widget-name": "row-28",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-32",
+                                                            "widget-name": "column-32",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-13",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-13",
+                                                                    "text": "Details"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-29",
+                                                    "widget-name": "row-29",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-33",
+                                                            "widget-name": "column-33",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "labelProcIntro",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "labelProcIntro",
+                                                                    "text": "..."
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-30",
+                                                    "widget-name": "row-30",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-34",
+                                                            "widget-name": "column-34",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": "10px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content"
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-31",
+                                                    "widget-name": "row-31",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-35",
+                                                            "widget-name": "column-35",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "center",
+                                                            "padding": "25px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "labelUserMessage",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "labelUserMessage",
+                                                                    "text": "Procedure Needs a Work Order Number",
+                                                                    "class": "intro-label-wo"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-32",
+                                                    "widget-name": "row-32",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-36",
+                                                            "widget-name": "column-36",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "center",
+                                                            "fixedcolsize": "",
+                                                            "padding": "25px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "buttonScanForWorkOrder",
+                                                                    "widget-name": "buttonScanForWorkOrder",
+                                                                    "text": "Click to Scan Work Order Number ",
+                                                                    "margin": ""
+                                                                  },
+                                                                  "name": "twx-button",
+                                                                  "children": [
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1721236700968",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Button",
+                                                                        "source-name": "buttonScanForWorkOrder",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "scanWorkOrder",
+                                                                        "handler-service": "startScan",
+                                                                        "handler-path": "app.view[\"startPoint\"].wdg[\"scanWorkOrder\"].svc.startScan"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    },
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1721236763353",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Button",
+                                                                        "source-name": "button-1",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "popupIntro",
+                                                                        "handler-service": "hidepopup",
+                                                                        "handler-path": "app.view[\"startPoint\"].wdg[\"popupIntro\"].svc.hidepopup"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-33",
+                                                    "widget-name": "row-33",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-40",
+                                                            "widget-name": "column-40",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "center"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content"
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-41",
+                                                            "widget-name": "column-41",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "flexdirection": "row",
+                                                            "justification": "space-around",
+                                                            "alignment": "flex-end",
+                                                            "padding": "25px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "textInputWorkOrder",
+                                                                    "widget-name": "textInputWorkOrder",
+                                                                    "placeholder": "Enter Work Order Number ",
+                                                                    "label": "Input Label"
+                                                                  },
+                                                                  "name": "twx-text-input"
+                                                                },
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "buttonEnter",
+                                                                    "widget-name": "buttonEnter",
+                                                                    "click-expression": "handleWorkOrderEntry(true);",
+                                                                    "text": "Enter"
+                                                                  },
+                                                                  "name": "twx-button"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-17",
+                                                            "widget-name": "column-17",
+                                                            "is-widget-container": "true",
+                                                            "padding": "25px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content"
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-12",
+                                                    "widget-name": "row-12",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-15",
+                                                            "widget-name": "column-15",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "center"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "buttonStartNewProc",
+                                                                    "widget-name": "buttonStartNewProc",
+                                                                    "click-expression": "resetForNewProcedure();",
+                                                                    "text": "Start New WorkOrder",
+                                                                    "visible": "false"
+                                                                  },
+                                                                  "name": "twx-button"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-16",
+                                                            "widget-name": "column-16",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "center"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "buttonResumeProc",
+                                                                    "widget-name": "buttonResumeProc",
+                                                                    "click-expression": "resumeProcedure();",
+                                                                    "text": "Resume",
+                                                                    "visible": "false"
+                                                                  },
+                                                                  "name": "twx-button"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "row-3",
+                    "widget-name": "row-3",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-row",
+                  "children": [
+                    {
+                      "attributes": {
+                        "class": "twx-widget-bindings",
+                        "slot": "bindings",
+                        "ptc-rendered": ""
+                      },
+                      "name": "twx-widget-bindings"
+                    },
+                    {
+                      "name": "twx-container-content",
+                      "children": [
+                        {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-3",
+                            "widget-name": "column-3",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-col",
+                          "children": [
+                            {
+                              "attributes": {
+                                "class": "twx-widget-bindings",
+                                "slot": "bindings",
+                                "ptc-rendered": ""
+                              },
+                              "name": "twx-widget-bindings"
+                            },
+                            {
+                              "name": "twx-container-content",
+                              "children": [
+                                {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "popupIssue",
+                                    "is-visible-at-designtime": "false",
+                                    "widget-name": "popupIssue",
+                                    "is-widget-container": "true",
+                                    "class": "InfoPanel"
+                                  },
+                                  "name": "twx-popup",
+                                  "children": [
+                                    {
+                                      "attributes": {
+                                        "class": "twx-widget-bindings",
+                                        "slot": "bindings",
+                                        "ptc-rendered": ""
+                                      },
+                                      "name": "twx-widget-bindings"
+                                    },
+                                    {
+                                      "name": "twx-container-content",
+                                      "children": [
+                                        {
+                                          "attributes": {
+                                            "twx-widget": "",
+                                            "widget-id": "gridLayout-2",
+                                            "widget-name": "gridLayout-2",
+                                            "is-widget-container": "true"
+                                          },
+                                          "name": "twx-gridlayout",
+                                          "children": [
+                                            {
+                                              "attributes": {
+                                                "class": "twx-widget-bindings",
+                                                "slot": "bindings",
+                                                "ptc-rendered": ""
+                                              },
+                                              "name": "twx-widget-bindings"
+                                            },
+                                            {
+                                              "name": "twx-container-content",
+                                              "children": [
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-5",
+                                                    "widget-name": "row-5",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-5",
+                                                            "widget-name": "column-5",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-1",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-1",
+                                                                    "text": "Application Issue"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-12",
+                                                            "widget-name": "column-12",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-end"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "image-1",
+                                                                    "widget-name": "image-1",
+                                                                    "imgsrc": "Uploaded/sowiplayer/wpcoe_close.png",
+                                                                    "width": "40px"
+                                                                  },
+                                                                  "name": "twx-image2",
+                                                                  "children": [
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1721223660960",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Image",
+                                                                        "source-name": "image-1",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "popupIssue",
+                                                                        "handler-service": "hidepopup",
+                                                                        "handler-path": "app.view[\"startPoint\"].wdg[\"popupIssue\"].svc.hidepopup"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-6",
+                                                    "widget-name": "row-6",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-6",
+                                                            "widget-name": "column-6",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-4",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-4",
+                                                                    "text": "Message",
+                                                                    "class": "issues-label"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-7",
+                                                    "widget-name": "row-7",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-7",
+                                                            "widget-name": "column-7",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": ""
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "labelIssueMessage1",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "labelIssueMessage1",
+                                                                    "text": "...",
+                                                                    "padding": "0px,0px,0px,25px"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-8",
+                                                    "widget-name": "row-8",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-8",
+                                                            "widget-name": "column-8",
+                                                            "is-widget-container": "true",
+                                                            "class": "",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "label-5",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "label-5",
+                                                                    "text": "System Message",
+                                                                    "class": "issues-label"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-9",
+                                                    "widget-name": "row-9",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-9",
+                                                            "widget-name": "column-9",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "padding": ""
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "labelIssueMessage2",
+                                                                    "state-format-value": "text",
+                                                                    "widget-name": "labelIssueMessage2",
+                                                                    "text": "...",
+                                                                    "padding": "0px,0px,0px,25px"
+                                                                  },
+                                                                  "name": "twx-label"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-10",
+                                                    "widget-name": "row-10",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-10",
+                                                            "widget-name": "column-10",
+                                                            "is-widget-container": "true"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content"
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-11",
+                                                    "widget-name": "row-11",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-11",
+                                                            "widget-name": "column-11",
+                                                            "is-widget-container": "true",
+                                                            "alignment": "center"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "button-1",
+                                                                    "widget-name": "button-1",
+                                                                    "text": "Quit Session"
+                                                                  },
+                                                                  "name": "twx-button",
+                                                                  "children": [
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1722600793677",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Button",
+                                                                        "source-name": "button-1",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "popupIntro",
+                                                                        "handler-service": "showpopup",
+                                                                        "handler-path": "app.view[\"startPoint\"].wdg[\"popupIntro\"].svc.showpopup"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    },
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1722600870953",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Button",
+                                                                        "source-name": "button-1",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "popupIssue",
+                                                                        "handler-service": "hidepopup",
+                                                                        "handler-path": "app.view[\"startPoint\"].wdg[\"popupIssue\"].svc.hidepopup"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "row-4",
+                    "widget-name": "row-4",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-row",
+                  "children": [
+                    {
+                      "attributes": {
+                        "class": "twx-widget-bindings",
+                        "slot": "bindings",
+                        "ptc-rendered": ""
+                      },
+                      "name": "twx-widget-bindings"
+                    },
+                    {
+                      "name": "twx-container-content",
+                      "children": [
+                        {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-4",
+                            "widget-name": "column-4",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-col",
+                          "children": [
+                            {
+                              "attributes": {
+                                "class": "twx-widget-bindings",
+                                "slot": "bindings",
+                                "ptc-rendered": ""
+                              },
+                              "name": "twx-widget-bindings"
+                            },
+                            {
+                              "name": "twx-container-content"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "twx-widget": "",
+            "widget-id": "scanWorkOrder",
+            "is-visible-at-designtime": "false",
+            "widget-name": "scanWorkOrder",
+            "valueacquired-expression": "scanComplete();",
+            "text": "Scan Work Order Number"
+          },
+          "name": "twx-barcode-scanner"
+        }
+      ]
+    },
+    {
+      "name": "twx-view-data"
+    }
+  ],
+  "name": "twx-view"
+}
