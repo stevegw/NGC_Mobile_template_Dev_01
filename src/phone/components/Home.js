@@ -28,10 +28,7 @@ $scope.toggleInfo = function () {
 }
 
 
-$scope.returnToStart = function () {
-  
+$scope.returnToStart = function () {  
   $scope.app.params.prefill = [];
-  $scope.app.fn.navigate("startPoint");
-
-  
+  $scope.app.fn.navigate("startPoint");  
 }

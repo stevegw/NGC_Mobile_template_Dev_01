@@ -204,3 +204,22 @@
 [2024-08-05T11:50:17.084Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] pathDir
 [2024-08-05T11:50:18.550Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] END buildApp
 [2024-08-05T11:50:18.550Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Build succeeded.
+[2024-08-05T14:44:49.494Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Begin upgrade of project
+[2024-08-05T14:44:49.495Z] info: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Upgrading project
+[2024-08-05T14:44:49.496Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Make sure there are not any stale files lying around
+[2024-08-05T14:44:49.498Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Merging 
+[2024-08-05T14:44:49.498Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Original contents of
+[2024-08-05T14:44:49.500Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Copying /src/**/* to project, overwrite=false
+[2024-08-05T14:44:49.502Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Copying /**/* to project, skip /src/**/*,  overwrite=true
+[2024-08-05T14:44:49.579Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Copy of project files complete
+[2024-08-05T14:44:49.579Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Updating version to 
+[2024-08-05T14:44:49.580Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] onupgrade sucessful, now build the project
+[2024-08-05T14:44:49.580Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] BEGIN buildApp
+[2024-08-05T14:44:49.580Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] write settings
+[2024-08-05T14:44:49.580Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] copy runtime extensions
+[2024-08-05T14:44:50.354Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] packageThemeSet
+[2024-08-05T14:44:51.964Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] onBuild
+[2024-08-05T14:44:51.965Z] info: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Building ves-ar-extension app:
+[2024-08-05T14:44:51.966Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] pathDir
+[2024-08-05T14:44:52.919Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] END buildApp
+[2024-08-05T14:44:52.919Z] debug: [twx-studio:upgrade:NGC_Mobile_template_Dev_01] Build succeeded.

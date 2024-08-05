@@ -4,8 +4,12 @@ console.log($scope.app);
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const UPLOADPATH = "app/resources/Uploaded/";
 
-let SXSLData;
-let ShowStartSplash = true;
+if (!SXSLData){
+  let SXSLData;
+}
+if (!ShowStartSplash){
+  let ShowStartSplash = true;
+}
 const DEBUG = JSON.parse($scope.app.params.jloggerdebug);
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -34,7 +38,6 @@ showIntroPopup = function () {
 
 }
 
-
 showHideProcButtons = function (showWorkOrder, showHideNewProc, showHideResumeProc, showHideInputWO, showHideEnterButton) {
 
   $scope.setWidgetProp("buttonScanForWorkOrder", "visible", showWorkOrder);
@@ -57,7 +60,6 @@ $scope.toggleInfo = function () {
   let state = $scope.getWidgetProp("popupHelp", "visible");
   let result = state === "visible" ? $scope.setWidgetProp("popupIntro", "visible", false) : $scope.setWidgetProp("popupIntro", "visible", true);
 }
-
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // EVENTS
@@ -83,8 +85,6 @@ $rootScope.$on('stepStart', function (evt, step) {
 
 
 });
-
-
 
 $rootScope.startStep = function (sessionId, stepId, stepTitle, stepDescription, stepStartTime) {
   let serviceName = "StartStep";  
@@ -131,8 +131,6 @@ $rootScope.startStep = function (sessionId, stepId, stepTitle, stepDescription, 
 
 }
 
-
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
@@ -153,9 +151,6 @@ $rootScope.$on('actionStart', function (evt, action) {
   let step = $rootScope.sxslHelper.getStepbyID(action.stepid);
 });
 
-
-
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
@@ -166,7 +161,6 @@ $rootScope.$on('actionStart', function (evt, action) {
 $rootScope.$on('actionInputDelivered', function (evt, action) {
   $rootScope.actionInputDelivered(action.action);
 })
-
 
 $rootScope.actionInputDelivered = function (action) {
   $rootScope.logger.output("Action INPUT DELIVERED", "startPoint.js - actionInputDelivered")
@@ -247,11 +241,6 @@ $rootScope.actionInputDelivered = function (action) {
 
 }
 
-
-
-
-
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
@@ -320,7 +309,6 @@ $rootScope.$on('stepEnd', function (evt, step) {
 
 });
 
-
 $rootScope.endStep = function (sessionId, stepId, acknowledgement) {
 
 
@@ -358,8 +346,6 @@ $rootScope.endStep = function (sessionId, stepId, acknowledgement) {
   }
 }
 
-
-
 // 
 // Will execute when the Procedure is finshed.
 //
@@ -368,10 +354,6 @@ $rootScope.$on('procEnd', function (evt, procedure) {
   let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
   $rootScope.endProcedure(sessionId);
 });
-
-
-
-
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -422,7 +404,6 @@ $rootScope.endProcedure = function (sessionId) {
 }
 
 $scope.checkForScan = function () {
-
   let scanneeded = $rootScope.sxslHelper.WOScanNeeded();
   if (scanneeded) {
     $scope.setWidgetProp("labelUserMessage", "text", "Procedure Needs a Work Order Number");
@@ -436,11 +417,9 @@ $scope.checkForScan = function () {
   showIntroPopup();
 }
 
-
 $scope.scanComplete = function () {
   $scope.handleWorkOrderEntry(false);
 }
-
 
 $scope.handleWorkOrderEntry = function (isManual) {
   let wonum;
@@ -456,7 +435,6 @@ $scope.systemFullyInit = function () {
   $scope.checkForScan();
   $scope.app.params.prefill = "";
 }
-
 
 $scope.startNewProcedure = function () {
   $rootScope.sxslHelper.setFreshRun(true);
@@ -498,8 +476,6 @@ $scope.resumeProcedure = function () {
     $rootScope.ngcCommon.showIssue("Unexpected issue. Problem finding the last resume step.", error.message);
   }
 }
-
-
 
 $rootScope.getCompletedSteps = function (lastFinishedActionId) {
 
@@ -570,10 +546,6 @@ $rootScope.getCompletedSteps = function (lastFinishedActionId) {
 
 
 }
-
-
-
-
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Load Libary functions - loadLibrary will launch on loading the experience 
