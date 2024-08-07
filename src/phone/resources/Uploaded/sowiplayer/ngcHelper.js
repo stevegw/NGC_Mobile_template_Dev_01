@@ -120,15 +120,29 @@ class ngcHelper {
 
                                     this.#scope.startNewProcedure();
 
-                                } else {
+                                }  else {
                                     // unknown state maybe 
                                     this.showIssue("Unexpected Issue workOrderProcedureStatus request failed", message);
 
                                 }
 
                             } else {
-                                // display possible issue
-                                this.showIssue("Unexpected Issue workOrderProcedureStatus request failed", message);
+
+                                if ( message.includes('Error') && message.includes('permission to see procedure') ) {
+                                    // see if you can spli the message
+                                    let splitArray = message.split("Error");
+                                    if (splitArray.length >= 3 ) {
+                                        this.showIssue("Please check your permissions", splitArray[2]);
+                                    } else {
+                                        this.showIssue("Please check your permissions", message);
+                                    }
+
+                                    
+                                } else {
+                                    // display possible issue
+                                    this.showIssue("Unexpected Issue workOrderProcedureStatus request failed", message);
+                                }
+                 
 
                             }
 

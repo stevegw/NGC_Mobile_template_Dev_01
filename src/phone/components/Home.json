@@ -1179,6 +1179,7 @@
                                   "attributes": {
                                     "twx-widget": "",
                                     "widget-id": "popupSteps",
+                                    "is-visible-at-designtime": "false",
                                     "widget-name": "popupSteps",
                                     "is-widget-container": "true",
                                     "class": "InfoPanel",
