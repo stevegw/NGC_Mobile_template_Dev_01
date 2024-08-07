@@ -366,13 +366,20 @@ $scope.endStep = function (sessionId, stepId, acknowledgement) {
 
 $scope.endProcedure = function (sessionId) {
   $rootScope.logger.output("Procedure End:", "startPoint.js - endProcedure", 2);
-  let serviceName = "EndProcedureSession";  
+
+  //let serviceName = "EndProcedureSession";  
+  let serviceName =  SetWorkOrderProcedureStatus ;
   try {
 
 
     let params = {
-      sessionId: sessionId
+      workOrderNumber: $rootScope.getWorkOrder(),
+      procedureId: $rootScope.getId(),
+      procedureVersion: $rootScope.getVersionId(),
+      status : "complete"
+
     };
+
     $rootScope.ngcCommon.makePostRequest(serviceName, params)
       .then(data => {
         if (data) {
