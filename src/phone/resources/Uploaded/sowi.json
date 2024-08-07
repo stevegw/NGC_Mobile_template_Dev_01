@@ -68,7 +68,7 @@
                               ]
                           }
                       },
-                      "maxCaptures": "",
+                      "maxCaptures": "3",
                       "ID": "WorkOrderNumber",
                       "type": "CaptureString",
                       "title": {
@@ -262,7 +262,7 @@
                               ]
                           }
                       },
-                      "maxCaptures": "",
+                      "maxCaptures": "3",
                       "ID": "",
                       "type": "CaptureString",
                       "title": {
@@ -311,7 +311,7 @@
                               }
                           ]
                       },
-                      "maxCaptures": "",
+                      "maxCaptures": "3",
                       "ID": "PictureProof",
                       "type": "CaptureImage",
                       "title": {
@@ -348,7 +348,6 @@
                               ]
                           }
                       },
-                      "maxCaptures": "",
                       "ID": "",
                       "type": "CaptureNumber",
                       "title": {

@@ -325,8 +325,14 @@ class coeSxSLHelper {
     }
 
     setActionEndTime(id, endTime) {
-        this.#actionTimesMap.get(id).endTime = endTime;
-        let duration = (this.#actionTimesMap.get(id).endTime - this.#actionTimesMap.get(id).startTime) / 1000;
+
+        let duration = 1;
+        if (endTime != undefined) {
+            this.#actionTimesMap.get(id).endTime = endTime;
+            duration = (this.#actionTimesMap.get(id).endTime - this.#actionTimesMap.get(id).startTime) / 1000;
+
+        }
+
         return duration;
     }
 
@@ -439,7 +445,7 @@ class coeSxSLHelper {
      //This might be better in the SXSL Helper instead of NGC
      getInputResponseType(responseArray) {
         let inputType = "Unknown Input Type";
-        if (responseArray[0].response != undefined) {
+        if (responseArray != undefined && responseArray.length > 0) {
             inputType = responseArray[0].type;
         }
         return inputType;
@@ -460,9 +466,9 @@ class coeSxSLHelper {
     //This might be better in the SXSL Helper instead of NGC
     getInputResponse(responseArray) {
         // May Need to consider this
-        //responseArray.sort(function (a, b) {
-        //    return a.time - b.time;
-        //  });
+        responseArray.sort(function (a, b) {
+           return b.time - a.time;
+         });
 
         // for now get the first response 
         let actionInput = "No Response Data captured...";
