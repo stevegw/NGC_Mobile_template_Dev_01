@@ -39,6 +39,7 @@ class Jlogger {
         for (let x = 1; x < tn; x++) {
             tbs = tbs + '\t';
         }
+        if (tn == 1) {tbs = "\t"}
         return tbs;
     }
 

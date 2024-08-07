@@ -122,7 +122,7 @@
                               ]
                           }
                       },
-                      "maxCaptures": "",
+                      "maxCaptures": "3",
                       "ID": "",
                       "type": "CaptureString",
                       "title": {

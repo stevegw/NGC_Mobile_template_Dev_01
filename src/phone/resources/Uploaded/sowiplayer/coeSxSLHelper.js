@@ -1,7 +1,6 @@
 
 class coeSxSLHelper {
     #sxslData;
-    #freshRun;
     #workorder;
     #wtmessage;
     #wtsessionid;
@@ -12,8 +11,7 @@ class coeSxSLHelper {
     #lastFinishedActionId;
 
     //Constructor Method for the class
-    constructor() {
-        this.#freshRun = true;
+    constructor() {        
         this.#actionTimesMap = new Map();
     }
 
@@ -45,9 +43,6 @@ class coeSxSLHelper {
 
     //         let stepId = this.#sxslData.steps[stepNumber - 1].id;
     //         return  prereq= [{stepId:stepId,status:"hold", reason:"unknown"}]
-
-
-
 
     // }
 
@@ -165,22 +160,14 @@ class coeSxSLHelper {
         return this.#workorder;
     }
 
-    setFreshRun(b) {
-        this.#freshRun = b;
-    }
-
     getId() {
         //return this.#sxslData.id;
         return this.#sxslData.procName;
     }
 
-
-    getFreshRun() {
-        return this.#freshRun;
-    }
     //JH Start 8/2
     setSxSL(d) {
-        //This function is to set the overall SxSL data;
+        //This function is to set the overall SxSL data;        
         this.#sxslData = d;
         this.#stepActionStatus = d.steps.map(step => ({
             stepId: step.id,
@@ -193,6 +180,8 @@ class coeSxSLHelper {
             }))
         }));
     }
+
+
 
     getstepActionStatus() {
         return this.#stepActionStatus;
@@ -226,9 +215,8 @@ class coeSxSLHelper {
         }
     }
 
-    getDescription() {
-        //Returns the private variable "imageLoaded"
-        return this.#sxslData.description;
+    getDescription() {        
+        return this.#sxslData.introduction.resources[0].text;
     }
 
     getStepDescriptionById(stepId) {
@@ -266,6 +254,7 @@ class coeSxSLHelper {
     getTitle() {
         return this.#sxslData.title.resources[0]['text'];
     }
+
     getStepTitleByID(id) {
         // A LOT of liberties are being taken in this function
         // 
@@ -274,6 +263,10 @@ class coeSxSLHelper {
         return stepjson[0]['title']['resources'][0]['text'];
     }
 
+
+    getPublishedDate(){
+        return this.#sxslData.publishDate;
+    }
 
     getVersionId() {
         return this.#sxslData.versionId;

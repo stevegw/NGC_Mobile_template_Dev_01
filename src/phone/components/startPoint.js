@@ -2,58 +2,70 @@ console.log($scope.app);
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Globals
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+$scope.viewLoaded = false;
 const UPLOADPATH = "app/resources/Uploaded/";
-
-let SXSLData;
 let ShowStartSplash = true;
 const DEBUG = JSON.parse($scope.app.params.jloggerdebug);
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // local helper functions
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-getJSON = function (data) {
-  SXSLData = JSON.parse(data);
-}
-
-showIntroPopup = function () {
-  $scope.setWidgetProp("labelProcDescription", "text", SXSLData.title.resources[0].text);
-  $scope.setWidgetProp("labelProcVersion", "text", SXSLData.versionId);
-
-  let dateStr = SXSLData.publishDate;
+showIntroPopup = function (introType, action) {
+  $rootScope.logger.output("Start: introType = " + introType, "startPoint.js - showIntroPopup")
+  //Common Parameters
+  $scope.setWidgetProp("labelProcDescription", "text", $rootScope.sxslHelper.getDescription());
+  $scope.setWidgetProp("labelProcVersion", "text", $rootScope.sxslHelper.getVersionId());
+  let dateStr = $rootScope.sxslHelper.getPublishedDate();
   let dateObj = new Date(dateStr);
   let readableDate = dateObj.toLocaleString();
   $scope.setWidgetProp("labelProcPubDate", "text", readableDate);
+  //Specific Parameters
+  // 1 = Scan Needed for Barcode
+  // 2 = No WorkOrder needed
+  // 3 = Refresh & Resum
+  // (showWorkOrder, showHideNewProc, showHideResumeProc, showHideInputWO, showHideEnterButton)
+  switch (parseInt(introType)) {
+    case 1:
+      $rootScope.logger.output("IntroType = 1", "startPoint.js - showIntroPopup",3)      
+      $scope.setWidgetProp("labelUserMessage", "text", "Procedure Needs a Work Order Number");
+      $scope.showHideProcButtons(true, false, false, true, true);
+      break;
+    case 2:
+    default:
+      $rootScope.logger.output("IntroType = 2 or Default", "startPoint.js - showIntroPopup",3)
+      $scope.setWidgetProp("labelUserMessage", "text", "Click New to start Procedure");
+      $scope.showHideProcButtons(false, false, false, false, false);
+      $scope.view.wdg['startNoWorkOrder'].visible = true;
+      break;
+    case 3:
+      $rootScope.logger.output("IntroType = 3 Refresh & Resume", "startPoint.js - showIntroPopup",3 )
+      $scope.setWidgetProp("labelUserMessage", "text", "Procedure with #" + action.wonum + " has already '" + action.workOrderProcedureStatus + "' Click Start New  WorkOrder or Resume");
+      $scope.showHideProcButtons(false, true, true, false, false);
+      break;
+  }
+
   try {
-    $scope.setWidgetProp("labelProcIntro", "text", SXSLData.introduction.resources[0].text);
+    $scope.setWidgetProp("labelProcIntro", "text", $rootScope.sxslHelper.getTitle());
   } catch (err) {
     //ignore 
     $scope.setWidgetProp("labelProcIntro", "text", "No introduction found");
   }
-
   $scope.setWidgetProp("popupIntro", "visible", true);
-
 }
 
-
-showHideProcButtons = function (showWorkOrder, showHideNewProc, showHideResumeProc, showHideInputWO, showHideEnterButton) {
-
-  $scope.setWidgetProp("buttonScanForWorkOrder", "visible", showWorkOrder);
-  $scope.setWidgetProp("buttonStartNewProc", "visible", showHideNewProc);
-  $scope.setWidgetProp("buttonResumeProc", "visible", showHideResumeProc);
-
-  $scope.setWidgetProp("textInputWorkOrder", "visible", showHideInputWO);
-  $scope.setWidgetProp("buttonEnter", "visible", showHideEnterButton);
-
-
-
+$scope.resetForNewProcedure = function () {
+  //$rootScope.sxslHelper.setFreshRun(true);
+  //$scope.setWidgetProp("labelUserMessage", "text", "Click New to start Procedure");
+  //showHideProcButtons(true, false, false, true, true);
+  showIntroPopup(1, {});
 }
+
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Exposed Studio Functions
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $scope.toggleInfo = function () {
-
   let state = $scope.getWidgetProp("popupHelp", "visible");
   let result = state === "visible" ? $scope.setWidgetProp("popupIntro", "visible", false) : $scope.setWidgetProp("popupIntro", "visible", true);
 }
@@ -78,60 +90,9 @@ $rootScope.$on('stepStart', function (evt, step) {
     let stepDescription = $rootScope.sxslHelper.getStepDescriptionById(step.id);
     let stepStartTime = Date.now();
     let si = $rootScope.sxslHelper.getWorkTrackSessionId();
-    $rootScope.startStep(si, step.id, step.title, stepDescription, stepStartTime);
+    $rootScope.ngcCommon.startStep(si, step.id, step.title, stepDescription, stepStartTime);
   }
-
-
 });
-
-
-
-$rootScope.startStep = function (sessionId, stepId, stepTitle, stepDescription, stepStartTime) {
-  let serviceName = "StartStep";  
-  let params = {
-    sessionId: sessionId,
-    stepId: stepId,
-    stepTitle: stepTitle,
-    stepDescription: stepDescription
-  };
-
-  try {
-    $rootScope.ngcCommon.makePostRequest(serviceName, params)
-      .then(data => {
-        if (data) {
-          $rootScope.logger.output('Completed THX ' + serviceName + ' request - response =' + JSON.stringify(data), "startPoint.js - stepStart", 2);
-          let startStepData = data.data;
-
-          if (data.statusText === "OK" && !startStepData.rows[0].result.includes('failed')) {
-
-            // all ok 
-          }
-          else if (startStepData.rows[0].result.includes('started already')) {
-            // all ignore 
-            $rootScope.logger.output('Start Step -  Ignoring failure ' + startStepData.rows[0].result, "startPoint.js - stepStart", 2);
-          } else if (startStepData.rows[0].result.includes('failed')) {
-
-            $rootScope.ngcCommon.showIssue("Unexpected StartStep failure Params= " + " sessionId=" + data.config.data.sessionId + " stepId=" + data.config.data.stepId + " stepTitle=" + data.config.data.stepTitle + " stepDescription=" + data.config.data.stepDescription, startStepData.rows[0].result);
-
-          }
-
-        }
-      },
-        function (status) {
-          console.log("THX Service Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " service failed!" + "\n" + "The status returned was:  " + status + "\n");
-
-          $rootScope.ngcCommon.showIssue("Unexpected StartStep failure ", "Thingworx/PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " failed!" + "\n" + "The status returned was:  " + status + "\n" + "params =" + JSON.stringify(params));
-
-        }
-      )
-  } catch (e) {
-    console.log("THX Service " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
-    $rootScope.ngcCommon.showIssue("Unexpected THX Service " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
-  }
-
-}
-
-
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -153,9 +114,6 @@ $rootScope.$on('actionStart', function (evt, action) {
   let step = $rootScope.sxslHelper.getStepbyID(action.stepid);
 });
 
-
-
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
@@ -164,93 +122,8 @@ $rootScope.$on('actionStart', function (evt, action) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 $rootScope.$on('actionInputDelivered', function (evt, action) {
-  $rootScope.actionInputDelivered(action.action);
+  $rootScope.ngcCommon.actionInputDelivered(action.action);
 })
-
-
-$rootScope.actionInputDelivered = function (action) {
-  $rootScope.logger.output("Action INPUT DELIVERED", "startPoint.js - actionInputDelivered")
-  $rootScope.logger.output("Step ID: " + action.stepid, "startPoint.js - actionInputDelivered", 2)
-  $rootScope.logger.output("Action ID: " + JSON.stringify(action.id), "startPoint.js - actionInputDelivered", 4)
-
-  $rootScope.sxslHelper.setActionRecordedValue(action.stepid, action.id, 'pending');
-  $rootScope.logger.output("Marked Status as PENDING", "startPoint.js - actionInputDelivered", 4);
-
-  let x = $rootScope.sxslHelper.getActionRecordedByIds(action.stepid, action.id);
-  $rootScope.logger.output("getActionRecordedByIds Test: " + x, "startPoint.js - actionInputDelivered", 4);
-
-  let serviceName = "SaveAction"; 
-  let actionId = action.id;
-  let stepId = action.step.id;
-  let responseArray = action.details.response[action.details.ID];
-  let actionName = action.base.actiontitle;
-  let actionInstruction = action.instruction;
-  let actionDuration = $rootScope.sxslHelper.setActionEndTime(actionId, responseArray[0].time);
-  let inputImage = " ";
-  let inputFileExtension = " ";
-  let actionInput;
-
-  let feedback = $rootScope.sxslHelper.getInputResponseType(responseArray)      //common input response code.
-  
-  if (feedback === "CaptureString" || feedback === "CaptureNumber"){
-    $rootScope.actionPending = false;
-    actionInput = $rootScope.sxslHelper.getInputResponse(responseArray)      //common input response code.
-  }
-
-  if (feedback === "CaptureImage"){
-    $rootScope.actionPending = true;    //Slowing down processing to address the upload of an Image
-    inputImage = $rootScope.sxslHelper.getPictureResponse(responseArray)      
-    inputFileExtension = "png";
-  }
-
-  let params = {
-    actionDuration: actionDuration,
-    actionId: actionId,
-    actionInput: actionInput,
-    inputFileExtension: inputFileExtension,
-    actionDescription: actionInstruction,
-    sessionId: $rootScope.sxslHelper.getWorkTrackSessionId(),
-    inputImage: inputImage,
-    actionName: actionName,
-    stepId: stepId
-  };
-
-  try {
-    $rootScope.ngcCommon.makePostRequest(serviceName, params)
-      .then(data => {
-        $rootScope.actionPending = false;       //Turn off the indicator that a write was taking place.  Need this when a picture is being written to ThingWorx, because it takes a bit longer.
-        if (data) {
-          $rootScope.logger.output('Completed THX ' + serviceName + ' request - response =' + JSON.stringify(data), "startPoint.js - actionInputDelivered", 2);
-          let saveActionData = data.data;
-
-          if (data.statusText === "OK" && !saveActionData.rows[0].result.includes('failed')) {
-            $rootScope.sxslHelper.setActionRecordedValue(action.stepid, action.id, true);   //Setting value to help when we need to capture an Action with no Input.
-          } else if (saveActionData.rows[0].result.includes('failed')) {
-            $rootScope.ngcCommon.showIssue("Unexpected Save action failure Params= " + " sessionId=" + data.config.data.sessionId + " stepId=" + data.config.data.stepId + + " actionId=" + data.config.data.actionId + " actionInput=" + data.config.data.actionInput + "  actionName=" + data.config.data.actionName, saveActionData.rows[0].result);
-          }
-        }
-      },
-        function (status) {
-          $rootScope.logger.output ("THX Service Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " service failed!" + "\n" + "The status returned was:  " + status + "\n","startPoint.js - actionInputDelivered", 4);
-          $rootScope.ngcCommon.showIssue("Unexpected Save action failure ", "Thingworx/PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " failed!" + "\n" + "The status returned was:  " + status + "\n" + "params =" + JSON.stringify(params));
-
-        }
-      )
-  } catch (e) {
-    console.log("THX Service " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
-    $rootScope.ngcCommon.showIssue("Unexpected Thingworx " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
-  }
-
-
-
-
-
-}
-
-
-
-
-
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -264,54 +137,57 @@ $rootScope.$on('stepEnd', function (evt, step) {
 
   let acknowledgement = "...";
   let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
-  let acktype = step.ack.type;
+  $rootScope.logger.output("AckType Test Full JSON: " + JSON.stringify(step.ack));
+  let acktype;
+  if (step.ack) {
+    acktype = step.ack.type;
+    switch (step.ack.type) {
 
-  switch (step.ack.type) {
+      case "Confirmation":
 
-    case "Confirmation":
+        acknowledgement = step.ack.response === "y" ? "Yes" : step.ack.response;
+        break;
 
-      acknowledgement = step.ack.response === "y" ? "Yes" : step.ack.response;
-      break;
+      case "PassFail":
 
-    case "PassFail":
-
-      let resonType = step.ack.hasOwnProperty('reasonType');
-      if (!resonType) {
-        if (step.ack.response === "y") {
-          acknowledgement = "Yes"
-        }
-        else if (step.ack.response === "f") {
-          acknowledgement = "Fail";
-        } else if (step.ack.response === "p") {
-          acknowledgement = "Pass";
-        } else {
-          acknowledgement = step.ack.response;
-        }
-      } else {
-        //complex type 
-        if (step.ack.reasonType === "Code") {
-          let found = false;
-          for (let i = 0; i < step.ack.reasonCodes.length; i++) {
-            if (step.ack.reasonCodes[i].code === step.ack.response) {
-              acknowledgement = step.ack.reasonCodes[i].resources[0].text;
-              found = true;
-              break;
-            }
+        let resonType = step.ack.hasOwnProperty('reasonType');
+        if (!resonType) {
+          if (step.ack.response === "y") {
+            acknowledgement = "Yes"
           }
-          if (!found) {
+          else if (step.ack.response === "f") {
+            acknowledgement = "Fail";
+          } else if (step.ack.response === "p") {
+            acknowledgement = "Pass";
+          } else {
             acknowledgement = step.ack.response;
           }
+        } else {
+          //complex type 
+          if (step.ack.reasonType === "Code") {
+            let found = false;
+            for (let i = 0; i < step.ack.reasonCodes.length; i++) {
+              if (step.ack.reasonCodes[i].code === step.ack.response) {
+                acknowledgement = step.ack.reasonCodes[i].resources[0].text;
+                found = true;
+                break;
+              }
+            }
+            if (!found) {
+              acknowledgement = step.ack.response;
+            }
+          }
         }
-      }
-      break;
+        break;
 
-    default:
-      acknowledgement = step.ack.response;
-      break;
+      default:
+        acknowledgement = step.ack.response;
+        break;
+    }
   }
 
   var checkActionPending = setInterval(function () {
-    if (!$rootScope.actionPending) {
+    if (!$rootScope.ngcCommon.getActionPending()) {
       $rootScope.endStep(sessionId, step.id, acknowledgement);
       clearInterval(checkActionPending);
     }
@@ -325,7 +201,7 @@ $rootScope.endStep = function (sessionId, stepId, acknowledgement) {
 
 
   try {
-    let serviceName = "EndStep";    
+    let serviceName = "EndStep";
     let params = {
       sessionId: sessionId,
       stepId: stepId,
@@ -365,12 +241,10 @@ $rootScope.endStep = function (sessionId, stepId, acknowledgement) {
 //
 $rootScope.$on('procEnd', function (evt, procedure) {
   $rootScope.logger.output("Procedure End:", "startPoint.js - procEnd Listener")
+
   let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
   $rootScope.endProcedure(sessionId);
 });
-
-
-
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -383,7 +257,7 @@ $rootScope.$on('procEnd', function (evt, procedure) {
 
 $rootScope.endProcedure = function (sessionId) {
   $rootScope.logger.output("Procedure End:", "startPoint.js - endProcedure", 2);
-  let serviceName = "EndProcedureSession";  
+  let serviceName = "EndProcedureSession";
   try {
 
 
@@ -421,19 +295,32 @@ $rootScope.endProcedure = function (sessionId) {
 
 }
 
-$scope.checkForScan = function () {
+$scope.showHideProcButtons = function (showWorkOrder, showHideNewProc, showHideResumeProc, showHideInputWO, showHideEnterButton) {
+  $rootScope.logger.output("Input Params: " + showWorkOrder + ", " + showHideNewProc + ", " + showHideResumeProc + ", " + showHideInputWO + ", " + showHideEnterButton, "startPoint.js - showHideProcButtons", 2)
+  $scope.setWidgetProp("buttonScanForWorkOrder", "visible", showWorkOrder);
+  $scope.setWidgetProp("buttonStartNewProc", "visible", showHideNewProc);
+  $scope.setWidgetProp("buttonResumeProc", "visible", showHideResumeProc);
+  $scope.setWidgetProp("textInputWorkOrder", "visible", showHideInputWO);
+  $scope.setWidgetProp("buttonEnter", "visible", showHideEnterButton);
+        
+  $scope.$applyAsync();
+}
 
+$scope.checkForScan = function () {
+  let introType;
   let scanneeded = $rootScope.sxslHelper.WOScanNeeded();
+  $rootScope.logger.output("Scan needed = " + scanneeded, "Start.js - checkForScan");
   if (scanneeded) {
-    $scope.setWidgetProp("labelUserMessage", "text", "Procedure Needs a Work Order Number");
+    $rootScope.logger.output("TRUE Part of if", "Start.js - checkForScan");
+    introType = 1  // Scan needed for Barcode and
   }
   else {
-    // No WorkOrder needed.
-    $scope.setWidgetProp("labelUserMessage", "text", "Click New to start Procedure");
+    introType = 2   //Proceedure w/no NGC specific Barcode scan
+    $rootScope.logger.output("FALSE Part of if", "Start.js - checkForScan");
   }
 
-  showHideProcButtons(true, false, false, true, true);
-  showIntroPopup();
+  showIntroPopup(introType,{});
+
 }
 
 
@@ -443,6 +330,7 @@ $scope.scanComplete = function () {
 
 
 $scope.handleWorkOrderEntry = function (isManual) {
+  $rootScope.logger.output ("Start parameter = " + isManual,"startPoint.js - handleWorkOrderEntry")
   let wonum;
   if (isManual) {
     wonum = $scope.getWidgetProp("textInputWorkOrder", "text");
@@ -453,13 +341,14 @@ $scope.handleWorkOrderEntry = function (isManual) {
 }
 
 $scope.systemFullyInit = function () {
-  $scope.checkForScan();
-  $scope.app.params.prefill = "";
+  if ($rootScope.dataRead && $scope.viewLoaded) {
+    $rootScope.logger.output("Fully Init: All Conditions pass", "Start.js - systemFullyInit");
+    $scope.checkForScan();
+  }
 }
 
 
 $scope.startNewProcedure = function () {
-  $rootScope.sxslHelper.setFreshRun(true);
 
   if ($rootScope.sxslHelper.getWorkOrder() !== undefined && $rootScope.sxslHelper.getWorkOrder() !== "") {
 
@@ -475,15 +364,8 @@ $scope.startNewProcedure = function () {
 
 }
 
-$scope.resetForNewProcedure = function () {
-  $rootScope.sxslHelper.setFreshRun(true);
-  $scope.setWidgetProp("labelUserMessage", "text", "Click New to start Procedure");
-  showHideProcButtons(true, false, false, true, true);
-  showIntroPopup();
-}
 
 $scope.resumeProcedure = function () {
-  $rootScope.sxslHelper.setFreshRun(false);
 
   try {
     let lastFinishedActionId = $rootScope.sxslHelper.getLastFinishedActionId();
@@ -504,7 +386,7 @@ $scope.resumeProcedure = function () {
 $rootScope.getCompletedSteps = function (lastFinishedActionId) {
 
   let completedSteps = [];
-  let serviceName = "GetWorkOrderProcedureSteps";  
+  let serviceName = "GetWorkOrderProcedureSteps";
   let params = {
     workOrderNumber: $scope.app.params.workordernumber,
     procedureId: $rootScope.sxslHelper.getId(),
@@ -576,10 +458,10 @@ $rootScope.getCompletedSteps = function (lastFinishedActionId) {
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Load Libary functions - loadLibrary will launch on loading the experience 
+// Load Libary functions - readFiles will launch on loading the experience 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-function loadLibrary(src) {
+function readFiles(src) {
   return new Promise(function (resolve, reject) {
     var head = document.head || document.getElementsByTagName('head')[0],
       script = document.createElement('script');
@@ -592,7 +474,7 @@ function loadLibrary(src) {
 }
 
 if (!$rootScope.logger) {
-  loadLibrary("Uploaded/sowiplayer/jlogger.js")
+  readFiles("Uploaded/sowiplayer/jlogger.js")
     .then(function () {
       $rootScope.logger = new Jlogger("SOWI NGC Player", "GLOBAL")
       $rootScope.logger.setShowOutput(DEBUG);
@@ -602,19 +484,19 @@ if (!$rootScope.logger) {
       // $rootScope.logger.output("Scan is finished, VIN = " + scaninfo, "scanfinshed")
       // $rootScope.logger.output(<message>, <location -OPTIONAl>, <depth -OPTIONAL>)
       if (!$rootScope.sxslHelper) {
-        loadLibrary('Uploaded/sowiplayer/coeSxSLHelper.js')
+        readFiles('Uploaded/sowiplayer/coeSxSLHelper.js')
           .then(function () {
             $rootScope.sxslHelper = new coeSxSLHelper($scope)
-            loadLibrary('Uploaded/sowiplayer/ngcHelper.js')
+            readFiles('Uploaded/sowiplayer/ngcHelper.js')
               .then(function () {
                 $rootScope.ngcCommon = new ngcHelper($scope, $http, $rootScope.sxslHelper, $rootScope.logger)
                 $rootScope.ngcCommon.setWorkTrackURLPrefix('/Thingworx/Things/PTCSC.SOWI.WorkTrack.Manager/Services/')
                 var filepath = "./app/resources/Uploaded/sowi.json";
                 fetch(filepath)
                   .then(response => response.text())
-                  .then(data => getJSON(data))
-                  .then(data => $rootScope.sxslHelper.setSxSL(SXSLData))
+                  .then(data => $rootScope.sxslHelper.setSxSL(JSON.parse(data)))
                   .then(function () {
+                    $rootScope.dataRead = true;
                     $scope.systemFullyInit();
                   })
                   .finally(function () {
@@ -635,78 +517,10 @@ if (!$rootScope.logger) {
     })
 }
 
-$rootScope.$on('actionEnd', function (evt, action) {
-  $rootScope.logger.output("Action End event", "startPoint.js - actionEnd")
-  $rootScope.logger.output("Step ID: " + action.stepid, "startPoint.js - actionEnd", 2)
-  $rootScope.logger.output("Action ID: " + JSON.stringify(action.id), "startPoint.js - actionEnd", 4)
-  x = $rootScope.sxslHelper.getActionRecordedByIds(action.stepid, action.id);
-  $rootScope.logger.output("getActionRecordedByIds Test: " + x, "startPoint.js - actionEnd", 4)
-
-  if (x != "pending" && x != true) {
-    $rootScope.logger.output("Here we go, recording Action no Input", "startPoint.js - actionEnd", 6)
-    let serviceName = "SaveAction";
-    
-    let actionId = action.id;
-    let stepId = action.step.id;
-    let actionName = action.base.actiontitle;
-    let actionInstruction = action.instruction;
-    let actionDuration = 1;     //TO-DO: FIX THIS :)
-    let inputImage = " ";
-    let inputFileExtension = " ";
-    let actionInput = "No Input for Action";
-    let params = {
-      actionDuration: actionDuration,
-      actionId: actionId,
-      actionInput: actionInput,
-      inputFileExtension: inputFileExtension,
-      actionDescription: actionInstruction,
-      sessionId: $rootScope.sxslHelper.getWorkTrackSessionId(),
-      inputImage: inputImage,
-      actionName: actionName,
-      stepId: stepId
-    };
-
-    try {
-      $rootScope.ngcCommon.makePostRequest(serviceName, params)
-        .then(data => {
-          $rootScope.actionPending = false;
-          if (data) {
-            $rootScope.logger.output('Completed THX ' + serviceName + ' request - response =' + JSON.stringify(data), "startPoint.js - actionEnd", 2);
-            let saveActionData = data.data;
-            if (data.statusText === "OK" && !saveActionData.rows[0].result.includes('failed')) {
-              // all ok 
-              //JH Start 8/2
-              $rootScope.sxslHelper.setActionRecordedValue(action.stepid, action.id, true);
-              $rootScope.logger.output("Marked Status as written to TWX", "startPoint.js - actionEnd", 6);
-              y = $rootScope.sxslHelper.getActionRecordedByIds(action.stepid, action.id);
-              $rootScope.logger.output("getActionRecordedByIds Test: " + y, "startPoint.js - actionEnd", 6);
-              //JH End 8/2
-            } else if (saveActionData.rows[0].result.includes('failed')) {
-              $rootScope.ngcCommon.showIssue("Unexpected Save action failure Params= " + " sessionId=" + data.config.data.sessionId + " stepId=" + data.config.data.stepId + + " actionId=" + data.config.data.actionId + " actionInput=" + data.config.data.actionInput + "  actionName=" + data.config.data.actionName, saveActionData.rows[0].result);
-            }
-          }
-        },
-          function (status) {
-            console.log("THX Service Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " service failed!" + "\n" + "The status returned was:  " + status + "\n");
-            $rootScope.ngcCommon.showIssue("Unexpected Save action failure ", "Thingworx/PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " failed!" + "\n" + "The status returned was:  " + status + "\n" + "params =" + JSON.stringify(params));
-          }
-        )
-    } catch (e) {
-      console.log("THX Service " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
-      $rootScope.ngcCommon.showIssue("Unexpected Thingworx " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
-    }
-
-
-  }
-
-
-
-});
-
-
 
 $scope.$on("$ionicView.loaded", function (event) {
- 
+  $scope.viewLoaded = true;
+  $scope.systemFullyInit();
   // Code here
 
 });

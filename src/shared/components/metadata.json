@@ -75,7 +75,7 @@
       }
     },
     {
-      "timestamp": "2024-08-05T15:21:53.749Z",
+      "timestamp": "2024-08-07T12:14:49.099Z",
       "action": "LATEST_SAVE",
       "usage": {
         "twx-view": 2,
@@ -85,12 +85,12 @@
         "twx-overlay-container": 5,
         "twx-gridlayout": 10,
         "twx-row": 51,
-        "twx-col": 76,
+        "twx-col": 77,
         "twx-image2": 12,
         "twx-overlay-body": 1,
         "twx-popup": 7,
         "twx-label": 37,
-        "twx-button": 8,
+        "twx-button": 9,
         "twx-repeater": 1,
         "twx-text-input": 1,
         "twx-barcode-scanner": 1

@@ -621,8 +621,7 @@
                                     "width": "100%",
                                     "height": "100%",
                                     "centered": "false",
-                                    "bottom": "1px",
-                                    "visible": "true"
+                                    "bottom": "1px"
                                   },
                                   "name": "twx-popup",
                                   "children": [
@@ -806,7 +805,7 @@
                                                                     "twx-widget": "",
                                                                     "widget-id": "labelProcDescription",
                                                                     "state-format-value": "text",
-                                                                    "widget-name": "labelProcDescription",
+                                                                    "widget-name": "labelProcIntro",
                                                                     "text": "...",
                                                                     "class": "intro-label"
                                                                   },
@@ -1130,7 +1129,7 @@
                                                                     "twx-widget": "",
                                                                     "widget-id": "labelProcIntro",
                                                                     "state-format-value": "text",
-                                                                    "widget-name": "labelProcIntro",
+                                                                    "widget-name": "labelProcDescription",
                                                                     "text": "..."
                                                                   },
                                                                   "name": "twx-label"
@@ -1305,6 +1304,7 @@
                                                                     "widget-id": "buttonScanForWorkOrder",
                                                                     "widget-name": "buttonScanForWorkOrder",
                                                                     "text": "Click to Scan Work Order Number ",
+                                                                    "visible": "false",
                                                                     "margin": ""
                                                                   },
                                                                   "name": "twx-button",
@@ -1424,7 +1424,8 @@
                                                                     "widget-id": "textInputWorkOrder",
                                                                     "widget-name": "textInputWorkOrder",
                                                                     "placeholder": "Enter Work Order Number ",
-                                                                    "label": "Input Label"
+                                                                    "label": "Input Label",
+                                                                    "visible": "false"
                                                                   },
                                                                   "name": "twx-text-input"
                                                                 },
@@ -1434,7 +1435,8 @@
                                                                     "widget-id": "buttonEnter",
                                                                     "widget-name": "buttonEnter",
                                                                     "click-expression": "handleWorkOrderEntry(true);",
-                                                                    "text": "Enter"
+                                                                    "text": "Enter",
+                                                                    "visible": "false"
                                                                   },
                                                                   "name": "twx-button"
                                                                 }
@@ -1531,6 +1533,42 @@
                                                             "twx-widget": "",
                                                             "widget-id": "column-16",
                                                             "widget-name": "column-16",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "center"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "startNoWorkOrder",
+                                                                    "widget-name": "startNoWorkOrder",
+                                                                    "text": "Start",
+                                                                    "visible": "false"
+                                                                  },
+                                                                  "name": "twx-button"
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-18",
+                                                            "widget-name": "column-18",
                                                             "is-widget-container": "true",
                                                             "justification": "center",
                                                             "alignment": "center"
