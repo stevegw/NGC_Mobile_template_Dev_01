@@ -373,9 +373,9 @@ $scope.endProcedure = function (sessionId) {
 
 
     let params = {
-      workOrderNumber: $rootScope.getWorkOrder(),
-      procedureId: $rootScope.getId(),
-      procedureVersion: $rootScope.getVersionId(),
+      workOrderNumber: $rootScope.sxslHelper.getWorkOrder(),
+      procedureId: $rootScope.sxslHelper.getId(),
+      procedureVersion: $rootScope.sxslHelper.getVersionId(),
       status : "complete"
 
     };
