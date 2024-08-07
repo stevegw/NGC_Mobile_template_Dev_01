@@ -368,7 +368,7 @@ $scope.endProcedure = function (sessionId) {
   $rootScope.logger.output("Procedure End:", "startPoint.js - endProcedure", 2);
 
   //let serviceName = "EndProcedureSession";  
-  let serviceName =  SetWorkOrderProcedureStatus ;
+  let serviceName =  "SetWorkOrderProcedureStatus" ;
   try {
 
 
