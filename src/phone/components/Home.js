@@ -3,7 +3,7 @@
 console.log(">>>> "+ $scope.app);
 
 $scope.$on("$ionicView.loaded", function (event) {
-  $scope.view.wdg.sxsldebug = JSON.parse($scope.app.params.sxsldebug);
+  
 });
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Exposed Studio Functions
@@ -27,8 +27,11 @@ $scope.toggleInfo = function () {
   
 }
 
+$scope.$on('actionEnd', function(evt, action) {
+  $rootScope.ngcCommon.actionEndProcessing(evt,action)
+});
 
 $scope.returnToStart = function () {  
-  $scope.app.params.prefill = [];
+  //HERE
   $scope.app.fn.navigate("startPoint");  
 }
