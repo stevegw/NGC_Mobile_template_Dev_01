@@ -17,11 +17,12 @@ class ngcHelper {
         this.log("The NGC Helper has been loaded and initialized", "Constructor");
     }
 
-    showIssue(message, systemMessage) {
+    showIssue(message, systemMessage) {        
         this.log("Start", "showIssue");
         this.#scope.setWidgetProp("labelIssueMessage1", "text", message);
         this.#scope.setWidgetProp("labelIssueMessage2", "text", systemMessage);
         this.#scope.setWidgetProp("popupIssue", "visible", true);
+        this.#scope.$applyAsync();
     }
 
     setActionPending (bval) {
@@ -83,13 +84,10 @@ class ngcHelper {
                 } else if (status.action === "startNewProcedure") {
                     this.#scope.startNewProcedure();
                 } else if (status.action === "showIssue") {
-                    this.showIssue(action.message, action.detail);
+                    this.showIssue(status.message, status.detail);                    
                 } else {
                     this.showIssue("Unkown Action", "Start Flow encountered unknown action");
                 }
-
-
-
             } else {
                 this.showIssue("Unexpected issue. Problem getting the ProcedureId from sowi.", "The sowi.json is located in " + UPLOADPATH);
             }
@@ -97,7 +95,6 @@ class ngcHelper {
             this.showIssue("Empty value found!", "Please enter a non blank value");
         }
     }
-
 
     lookupProcedure = function (wonum) {
         this.log("Start of lookupProcedure, WorkOrder = " + wonum, "lookupProcedure");
@@ -318,7 +315,10 @@ actionInputDelivered = function (action) {
     let responseArray = action.details.response[action.details.ID];
     let actionName = action.base.actiontitle;
     let actionInstruction = action.instruction;
-    let actionDuration = this.#sxslHelper.setActionEndTime(actionId, responseArray[0].time);
+    let actionDuration = 1;
+    if (responseArray != undefined && responseArray.length > 0) {
+      actionDuration = this.#sxslHelper.setActionEndTime(actionId, responseArray[0].time);
+    }
     let inputImage = " ";
     let inputFileExtension = " ";
     let actionInput;
