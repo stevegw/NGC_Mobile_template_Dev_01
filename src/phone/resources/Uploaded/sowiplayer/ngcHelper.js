@@ -328,6 +328,13 @@ actionInputDelivered = function (action) {
     let actionDuration = 1;
     if (responseArray != undefined && responseArray.length > 0) {
       actionDuration = this.#sxslHelper.setActionEndTime(actionId, responseArray[0].time);
+    } else {
+
+        // Laste time  timeStamp from previous step
+        let stepStatus = this.#sxslHelper.getstepActionStatus();
+        if (stepStatus != undefined && stepStatus != "") {
+            actionDuration =  (Date.now() -  stepStatus) / 1000;
+        } 
     }
     let inputImage = " ";
     let inputFileExtension = " ";

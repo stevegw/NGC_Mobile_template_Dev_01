@@ -176,7 +176,8 @@ class coeSxSLHelper {
                 actiontitle: action.actiontitle,
                 started: false,
                 finished: false,
-                recorded: false
+                recorded: false,
+                timeStamp: Date.now()
             }))
         }));
     }

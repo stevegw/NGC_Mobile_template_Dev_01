@@ -79,6 +79,7 @@
                               }
                           ]
                       },
+                      "tool" : "Barcode",
                       "required": false
                   },
                   "id": "77c71cd5-b3bd-4886-bd6f-fd1b860a2a02",
