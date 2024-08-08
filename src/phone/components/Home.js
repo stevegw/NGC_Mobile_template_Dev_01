@@ -1,7 +1,6 @@
 // $scope, $element, $attrs, $injector, $sce, $timeout, $http, $ionicPopup, and $ionicPopover services are available
 
 console.log(">>>> " + $scope.app);
-
 $scope.$on("$ionicView.loaded", function (event) {
 
 });

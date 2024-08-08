@@ -400,11 +400,6 @@ actionInputDelivered = function (action) {
       console.log("THX Service " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
       this.showIssue("Unexpected Thingworx " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
     }
-  
-  
-  
-  
-  
   }
   
   
