@@ -11,7 +11,7 @@ class coeSxSLHelper {
     #lastFinishedActionId;
 
     //Constructor Method for the class
-    constructor() {        
+    constructor() {
         this.#actionTimesMap = new Map();
     }
 
@@ -215,7 +215,7 @@ class coeSxSLHelper {
         }
     }
 
-    getDescription() {        
+    getDescription() {
         return this.#sxslData.introduction.resources[0].text;
     }
 
@@ -264,7 +264,7 @@ class coeSxSLHelper {
     }
 
 
-    getPublishedDate(){
+    getPublishedDate() {
         return this.#sxslData.publishDate;
     }
 
@@ -285,13 +285,18 @@ class coeSxSLHelper {
                 let actionDetailData = this.getActionDetailData(actionData[0]);
                 if (actionDetailData != undefined) {
                     if (actionDetailData.hasOwnProperty("ID")) {
-                        //Check Name = WorkOrderNumber
-                        //Check tool = barcode ;
+                        //Check Name = WorkOrderNumber                        
                         let id = actionDetailData.ID
-                        let tool = actionDetailData.tool
-                        // trim? for white space and toupper and lower                      
+                        // trim? for white space and to lower                      
                         if (id.trim().toLowerCase() === "workordernumber") {
-                            scanyesno = true;
+                            if (actionDetailData.hasOwnProperty("tool")) {
+                                //Check tool = barcode ;
+                                let tool = actionDetailData.tool
+                                // trim? for white space and to lower                      
+                                if (tool.trim().toLowerCase() === "barcode") {
+                                    scanyesno = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -442,8 +447,8 @@ class coeSxSLHelper {
     }
 
 
-     //This might be better in the SXSL Helper instead of NGC
-     getInputResponseType(responseArray) {
+    //This might be better in the SXSL Helper instead of NGC
+    getInputResponseType(responseArray) {
         let inputType = "Unknown Input Type";
         if (responseArray != undefined && responseArray.length > 0) {
             inputType = responseArray[0].type;
@@ -467,8 +472,8 @@ class coeSxSLHelper {
     getInputResponse(responseArray) {
         // May Need to consider this
         responseArray.sort(function (a, b) {
-           return b.time - a.time;
-         });
+            return b.time - a.time;
+        });
 
         // for now get the first response 
         let actionInput = "No Response Data captured...";
@@ -478,7 +483,7 @@ class coeSxSLHelper {
         }
 
         return actionInput;
-    } 
+    }
 
 
 
