@@ -31,7 +31,7 @@ class ngcHelper {
         this.#doAPIs = b;
     }
 
-    doAPI(){
+    doAPIs(){
         return this.#doAPIs;
     }
 

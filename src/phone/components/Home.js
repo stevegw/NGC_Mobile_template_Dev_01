@@ -28,7 +28,7 @@ $scope.toggleInfo = function () {
 }
 
 $scope.$on('actionEnd', function (evt, action) {
-  if ($rootScope.ngcCommon.doAPIs) {
+  if ($rootScope.ngcCommon.doAPIs()) {
     $rootScope.ngcCommon.actionEndProcessing(evt, action)
   }
 });
@@ -52,7 +52,7 @@ $scope.returnToStart = function () {
 
 $scope.$on('stepStart', function (evt, step) {
   $rootScope.logger.output("Step Start", "startPoint.js - stepStart Listener")
-  if ($rootScope.ngcCommon.doAPIs) {
+  if ($rootScope.ngcCommon.doAPIs()) {
     if ($scope.app.params.sessionId != undefined) {
       let stepTitle = $rootScope.sxslHelper.getTitle();
       let stepDescription = $rootScope.sxslHelper.getStepDescriptionById(step.id);
@@ -74,7 +74,7 @@ $scope.$on('stepStart', function (evt, step) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 $scope.$on('stepEnd', function (evt, step) {
   $rootScope.logger.output("Step End", "startPoint.js - stepEnd Listener")
-  if ($rootScope.ngcCommon.doAPIs) {
+  if ($rootScope.ngcCommon.doAPIs()) {
     let acknowledgement = "...";
     let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
     $rootScope.logger.output("AckType Test Full JSON: " + JSON.stringify(step.ack));
@@ -137,13 +137,13 @@ $scope.$on('stepEnd', function (evt, step) {
 });
 
 $scope.$on('actionInputDelivered', function (evt, action) {
-  if ($rootScope.ngcCommon.doAPIs) {
+  if ($rootScope.ngcCommon.doAPIs()) {
     $rootScope.ngcCommon.actionInputDelivered(action.action);
   }
 })
 
 $scope.$on('actionStart', function (evt, action) {
-  if ($rootScope.ngcCommon.doAPIs) {
+  if ($rootScope.ngcCommon.doAPIs()) {
     let actionId = action.id;
     let actionInput = 'test input'; // place holder
     let inputFileExtension = '';
@@ -158,7 +158,7 @@ $scope.$on('actionStart', function (evt, action) {
 
 $scope.$on('procEnd', function (evt, procedure) {
   $rootScope.logger.output("Procedure End:", "startPoint.js - procEnd Listener")
-  if ($rootScope.ngcCommon.doAPIs) {
+  if ($rootScope.ngcCommon.doAPIs()) {
     $rootScope.ngcCommon.endProcedure();
   }
 });
