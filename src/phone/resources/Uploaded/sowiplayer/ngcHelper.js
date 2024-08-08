@@ -113,7 +113,6 @@ class ngcHelper {
     
         this.#scope.app.params.procedureId = this.#sxslHelper.getId();
         this.#scope.app.params.procedureVersionId = this.#sxslHelper.getVersionId();
-    
         let params = {
             appVersion: "iPad6,3; iOS18.1.1",
             procedureLastEditor: "no longer used",
@@ -149,7 +148,8 @@ class ngcHelper {
                         if (message === "OK") {
                             // now check for new or resume
                             if (lastFinishedActionId != undefined && lastFinishedActionId != "" && workOrderProcedureStatus == "started") {
-                                this.#sxslHelper.setLastFinishedActionId(data.data.rows[0].lastFinishedActionId);                                    
+                                this.#sxslHelper.setLastFinishedActionId(data.data.rows[0].lastFinishedActionId);   
+                                                                
                                 return {action: "showIntroPopup",
                                     wonum: wonum,
                                     workOrderProcedureStatus
@@ -205,10 +205,21 @@ class ngcHelper {
             let stepId = action.step.id;
             let actionName = action.base.actiontitle;
             let actionInstruction = action.instruction;
-            let actionDuration = 1;     //TO-DO: FIX THIS :)
+            
             let inputImage = " ";
             let inputFileExtension = " ";
             let actionInput = "No Input for Action";
+
+            let actionDuration = 1;
+            // Laste time  timeStamp from previous step
+            let stepStatus = this.#sxslHelper.getstepActionStatus();
+            if (stepStatus != undefined && stepStatus != "" && stepStatus.timeStamp != undefined) {
+                actionDuration =  (Date.now() -  stepStatus.timeStamp) / 1000;
+                if (actionDuration < 1 ) {
+                  actionDuration = 1;
+                }
+            } 
+            
             let params = {
                 actionDuration: actionDuration,
                 actionId: actionId,
@@ -229,6 +240,7 @@ class ngcHelper {
                             this.log('Completed THX ' + serviceName + ' request - response =' + JSON.stringify(data), "ngcHelper - actionEnd", 2);
                             let saveActionData = data.data;
                             if (data.statusText === "OK" && !saveActionData.rows[0].result.includes('failed')) {
+                                this.#sxslHelper.setActionTimeStamp();
                                 this.#sxslHelper.setActionRecordedValue(action.stepid, action.id, true);
                                 this.log("Marked Status as written to TWX", "ngcHelper - actionEnd", 6);
                                 let pdacts = this.#sxslHelper.getActionRecordedByIds(action.stepid, action.id);
@@ -275,6 +287,7 @@ class ngcHelper {
                 this.log('Result: ' + startStepData.rows[0].result, "stepStart", 1);
       
                 if (data.statusText === "OK" && !startStepData.rows[0].result.includes('failed')) {
+                  this.#sxslHelper.setActionTimeStamp();
       
                   // all ok 
                 }
@@ -328,13 +341,6 @@ actionInputDelivered = function (action) {
     let actionDuration = 1;
     if (responseArray != undefined && responseArray.length > 0) {
       actionDuration = this.#sxslHelper.setActionEndTime(actionId, responseArray[0].time);
-    } else {
-
-        // Laste time  timeStamp from previous step
-        let stepStatus = this.#sxslHelper.getstepActionStatus();
-        if (stepStatus != undefined && stepStatus != "") {
-            actionDuration =  (Date.now() -  stepStatus) / 1000;
-        } 
     }
     let inputImage = " ";
     let inputFileExtension = " ";
@@ -378,6 +384,7 @@ actionInputDelivered = function (action) {
   
             if (data.statusText === "OK" && !saveActionData.rows[0].result.includes('failed')) {
               this.#sxslHelper.setActionRecordedValue(action.stepid, action.id, true);   //Setting value to help when we need to capture an Action with no Input.
+              this.#sxslHelper.setActionTimeStamp();
             } else if (saveActionData.rows[0].result.includes('failed')) {
               this.showIssue("Unexpected Save action failure Params= " + " sessionId=" + data.config.data.sessionId + " stepId=" + data.config.data.stepId + + " actionId=" + data.config.data.actionId + " actionInput=" + data.config.data.actionInput + "  actionName=" + data.config.data.actionName, saveActionData.rows[0].result);
             }
@@ -420,6 +427,7 @@ endProcedure = function () {
             let endStepData = data.data;
             if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
               // all ok 
+              this.#sxslHelper.setActionTimeStamp();
             } else if (saveActionData.rows[0].result.includes('failed')) {
               this.showIssue("Unexpected EndProcedureSession failure ", endStepData.rows[0].result);
             }
@@ -455,6 +463,7 @@ endProcedure = function () {
             let endStepData = data.data;
             if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
               // all ok 
+              this.#sxslHelper.setActionTimeStamp();
             } else if (endStepData.rows[0].result.includes('failed')) {
              this.showIssue("Unexpected EndStep failure Params= stepId=" + data.config.data.stepId + " WorkOrderNumber=" + $scope.app.params.workordernumber, endStepData.rows[0].result);
             }

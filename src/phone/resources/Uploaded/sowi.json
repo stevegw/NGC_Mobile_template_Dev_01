@@ -68,7 +68,7 @@
                               ]
                           }
                       },
-                      "maxCaptures": "3",
+                      "maxCaptures": 3,
                       "ID": "WorkOrderNumber",
                       "type": "CaptureString",
                       "title": {
@@ -118,12 +118,12 @@
                               "resources": [
                                   {
                                       "mimeType": "text/plain",
-                                      "text": "Enter Text"
+                                      "text": "Enter value"
                                   }
                               ]
                           }
                       },
-                      "maxCaptures": "3",
+                      "maxCaptures": 3,
                       "ID": "",
                       "type": "CaptureString",
                       "title": {
@@ -145,14 +145,40 @@
                       "resources": [
                           {
                               "mimeType": "text/plain",
-                              "text": "Another Action (with no Inputs)"
+                              "text": "First Action (with no Inputs)"
                           }
                       ]
                   },
                   "id": "20e6c94e-7658-49ff-acf3-c032beb9f003",
                   "actiontitle": "ac2s1",
                   "type": "Verify"
-              }
+              },
+              {
+                "instructions": {
+                    "resources": [
+                        {
+                            "mimeType": "text/plain",
+                            "text": "Second Action (with no Inputs)"
+                        }
+                    ]
+                },
+                "id": "20e6c94e-7658-49ff-acf3-c032beb9f004",
+                "actiontitle": "ac2s2",
+                "type": "Verify"
+            },
+            {
+                "instructions": {
+                    "resources": [
+                        {
+                            "mimeType": "text/plain",
+                            "text": "Third Action (with no Inputs)"
+                        }
+                    ]
+                },
+                "id": "20e6c94e-7658-49ff-acf3-c032beb9f005",
+                "actiontitle": "ac2s3",
+                "type": "Verify"
+            }
           ]
       },
       {
@@ -263,7 +289,7 @@
                               ]
                           }
                       },
-                      "maxCaptures": "3",
+                      "maxCaptures": 3,
                       "ID": "",
                       "type": "CaptureString",
                       "title": {
@@ -312,7 +338,7 @@
                               }
                           ]
                       },
-                      "maxCaptures": "3",
+                      "maxCaptures": 3,
                       "ID": "PictureProof",
                       "type": "CaptureImage",
                       "title": {

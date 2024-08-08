@@ -18,6 +18,7 @@ showIntroPopup = function (introType, action) {
   let dateStr = $rootScope.sxslHelper.getPublishedDate();
   let dateObj = new Date(dateStr);
   let readableDate = dateObj.toLocaleString();
+  $rootScope.sxslHelper.resetActionRecorded();
   $scope.setWidgetProp("labelProcPubDate", "text", readableDate);
   //Specific Parameters
   // 1 = Scan Needed for Barcode

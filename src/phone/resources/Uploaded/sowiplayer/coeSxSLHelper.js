@@ -171,13 +171,13 @@ class coeSxSLHelper {
         this.#sxslData = d;
         this.#stepActionStatus = d.steps.map(step => ({
             stepId: step.id,
+            timeStamp: undefined,
             actions: step.actions.map(action => ({
                 id: action.id,
                 actiontitle: action.actiontitle,
                 started: false,
                 finished: false,
                 recorded: false,
-                timeStamp: Date.now()
             }))
         }));
     }
@@ -188,6 +188,20 @@ class coeSxSLHelper {
         return this.#stepActionStatus;
     }
 
+
+    resetActionRecorded() {
+        var sarray = this.#stepActionStatus;
+        for (let i = 0; i < sarray.length; i++) {
+
+            for (let j = 0; j < sarray[i].actions.length; j++) {
+
+             sarray[i].actions[j].recorded = false;
+                
+            }
+            
+        }
+
+    }
     getActionRecordedByIds(stepId, actionId) {
         var sarray = this.#stepActionStatus;
         for (let i = 0; i < sarray.length; i++) {
@@ -214,6 +228,10 @@ class coeSxSLHelper {
                 }
             }
         }
+    }
+
+    setActionTimeStamp() {
+        this.#stepActionStatus.timeStamp = Date.now();
     }
 
     getDescription() {
