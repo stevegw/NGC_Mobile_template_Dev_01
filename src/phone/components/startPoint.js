@@ -29,6 +29,7 @@ showIntroPopup = function (introType, action) {
       $rootScope.logger.output("IntroType = 1", "startPoint.js - showIntroPopup",3)      
       $scope.setWidgetProp("labelUserMessage", "text", "Procedure Needs a Work Order Number");
       $scope.showHideProcButtons(true, false, false, true, true);
+      $rootScope.ngcCommon.setAPI(true);
       break;
     case 2:
     default:
@@ -36,11 +37,13 @@ showIntroPopup = function (introType, action) {
       $scope.setWidgetProp("labelUserMessage", "text", "Click New to start Procedure");
       $scope.showHideProcButtons(false, false, false, false, false);
       $scope.view.wdg['startNoWorkOrder'].visible = true;
+      $rootScope.ngcCommon.setAPI(false);
       break;
     case 3:
       $rootScope.logger.output("IntroType = 3 Refresh & Resume", "startPoint.js - showIntroPopup",3 )
       $scope.setWidgetProp("labelUserMessage", "text", "Procedure with #" + action.wonum + " has already '" + action.workOrderProcedureStatus + "' Click Start New  WorkOrder or Resume");
       $scope.showHideProcButtons(false, true, true, false, false);
+      $rootScope.ngcCommon.setAPI(true);
       break;
   }
 
@@ -122,6 +125,9 @@ $scope.systemFullyInit = function () {
   }
 }
 
+$scope.procWithNoWorkOrder = function(){
+  $scope.app.fn.navigate("Home");
+}
 
 $scope.startNewProcedure = function () {
 

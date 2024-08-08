@@ -6,6 +6,7 @@ class ngcHelper {
     #workTrackURLPrefix;
     #sxslHelper;
     #actionPending;
+    #doAPIs
 
     //Constructor Method for the class
     constructor(scp, http, sh, lgr) {
@@ -14,6 +15,7 @@ class ngcHelper {
         this.#logger = lgr;
         this.#sxslHelper = sh;
         this.#actionPending = false;
+        this.#doAPIs = false;
         this.log("The NGC Helper has been loaded and initialized", "Constructor");
     }
 
@@ -23,6 +25,14 @@ class ngcHelper {
         this.#scope.setWidgetProp("labelIssueMessage2", "text", systemMessage);
         this.#scope.setWidgetProp("popupIssue", "visible", true);
         this.#scope.$applyAsync();
+    }
+
+    setAPI(b){
+        this.#doAPIs = b;
+    }
+
+    doAPI(){
+        return this.#doAPIs;
     }
 
     setActionPending (bval) {
@@ -384,8 +394,78 @@ actionInputDelivered = function (action) {
   }
   
   
+endProcedure = function () {
+    this.log("Procedure End:", "endProcedure", 2);  
+    let serviceName =  "SetWorkOrderProcedureStatus" ;
+    try {  
+      let params = {
+        workOrderNumber: $rootScope.sxslHelper.getWorkOrder(),
+        procedureId: $rootScope.sxslHelper.getId(),
+        procedureVersion: $rootScope.sxslHelper.getVersionId(),
+        status : "finished"
+      };
+  
+      this.makePostRequest(serviceName, params)
+        .then(data => {
+          if (data) {
+            this.log('Completed THX ' + serviceName, 'endProcedure', 2);
+            this.log('Response =' + JSON.stringify(data), 'endProcedure', 2);
+            let endStepData = data.data;
+            if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
+              // all ok 
+            } else if (saveActionData.rows[0].result.includes('failed')) {
+              this.showIssue("Unexpected EndProcedureSession failure ", endStepData.rows[0].result);
+            }
+          }
+        },
+          function (status) {
+            console.log("THX Service " + serviceName + " Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " service failed!" + "\n" + "The status returned was:  " + status + "\n");
+            this.showIssue("Unexpected Save action failure ", "Thingworx/PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " failed!" + "\n" + "The status returned was:  " + status + "\n" + "params =" + JSON.stringify(params));  
+          }
+        )
+  
+    } catch (e) {
+      console.log("THX Service " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
+      this.showIssue("Unexpected Save action failure ", "THX Service " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
+    }  
+  }
 
-
+  endStep = function (sessionId, stepId, acknowledgement) {
+    try {
+      let serviceName = "EndStep";    
+      let params = {
+        sessionId: sessionId,
+        stepId: stepId,
+        acknowledgement: acknowledgement
+  
+      };
+     this.makePostRequest(serviceName, params)
+        .then(data => {
+          if (data) {
+            this.log('Completed THX ' + serviceName, "endStep", 2);            
+            this.log('Response =' + JSON.stringify(data), "endStep", 2);
+            this.log('Completed THX ' + serviceName + ' request - response =' + JSON.stringify(data), "endStep", 2);
+            let endStepData = data.data;
+            if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
+              // all ok 
+            } else if (endStepData.rows[0].result.includes('failed')) {
+             this.showIssue("Unexpected EndStep failure Params= stepId=" + data.config.data.stepId + " WorkOrderNumber=" + $scope.app.params.workordernumber, endStepData.rows[0].result);
+            }
+          }
+        },
+          function (status) {
+            console.log("THX Service " + serviceName + " Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " service failed!" + "\n" + "The status returned was:  " + status + "\n");
+           this.showIssue("Unexpected EndStep failure ", "Thingworx/PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " failed!" + "\n" + "The status returned was:  " + status + "\n" + "params =" + JSON.stringify(params));
+          }
+        )
+  
+  
+    } catch (e) {
+      console.log("THX Service " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
+     this.showIssue("Unexpected THX Service " + serviceName + " Failure", 'Check application key or if server is running or error was ' + e);
+    }
+  }
+  
 
 
 

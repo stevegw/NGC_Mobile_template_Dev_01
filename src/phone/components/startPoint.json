@@ -1555,6 +1555,7 @@
                                                                     "twx-widget": "",
                                                                     "widget-id": "startNoWorkOrder",
                                                                     "widget-name": "startNoWorkOrder",
+                                                                    "click-expression": "procWithNoWorkOrder();",
                                                                     "text": "Start",
                                                                     "visible": "false"
                                                                   },
