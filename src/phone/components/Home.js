@@ -50,7 +50,7 @@ $scope.returnToStart = function () {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $scope.$on('stepStart', function (evt, step) {
-  $rootScope.logger.output("Step Start", "startPoint.js - stepStart Listener")
+  $rootScope.logger.output("Step Start", "Home.js - stepStart()")
   if ($rootScope.ngcCommon.doAPIs()) {
     if ($scope.app.params.sessionId != undefined) {
       let stepTitle = $rootScope.sxslHelper.getTitle();
@@ -72,11 +72,11 @@ $scope.$on('stepStart', function (evt, step) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 $scope.$on('stepEnd', function (evt, step) {
-  $rootScope.logger.output("Step End", "startPoint.js - stepEnd Listener")
+  $rootScope.logger.output("Step End", "Home.js - stepEnd()")
   if ($rootScope.ngcCommon.doAPIs()) {
     let acknowledgement = "...";
     let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
-    $rootScope.logger.output("AckType Test Full JSON: " + JSON.stringify(step.ack));
+    $rootScope.logger.output("AckType Test Full JSON: " + JSON.stringify(step.ack), "Home.js - stepEnd()");
     let acktype;
     if (step.ack) {
       acktype = step.ack.type;
@@ -156,7 +156,7 @@ $scope.$on('actionStart', function (evt, action) {
 });
 
 $scope.$on('procEnd', function (evt, procedure) {
-  $rootScope.logger.output("Procedure End:", "startPoint.js - procEnd Listener")
+  $rootScope.logger.output("Procedure End:", "Home.js - procEnd()")
   if ($rootScope.ngcCommon.doAPIs()) {
     $rootScope.ngcCommon.endProcedure();
   }

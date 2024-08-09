@@ -130,7 +130,10 @@ class ngcHelper {
         return this.makePostRequest(serviceName, params)
             .then(data => {                
                 if (data) {
-                    this.log("Completed THX request", "lookupProcedure", 1);
+                    this.log('Completed THX ' + serviceName, "lookupProcedure", 1);
+                    this.log('Status: ' + data.statusText, "lookupProcedure", 1);
+                    this.log('Response =' + JSON.stringify(data) + "\n", "lookupProcedure", 1);
+                    
                     if (data.data.rows.length > 0) {
     
                         let sessionId = data.data.rows[0].sessionId;
@@ -192,14 +195,14 @@ class ngcHelper {
 
     //Action End Listener
     actionEndProcessing(evt,action){
-        this.log("Action End event", "ngcHelper - actionEnd", 2)
-        this.log("Step ID: " + action.stepid, "ngcHelper - actionEnd", 2)
-        this.log("Action ID: " + JSON.stringify(action.id), "ngcHelper - actionEnd", 4)    
+        this.log("Action End event", "actionEndProcessing")
+        this.log("Step ID: " + action.stepid, "actionEndProcessing", 1)
+        this.log("Action ID: " + JSON.stringify(action.id), "actionEndProcessing", 1)    
         let x = this.#sxslHelper.getActionRecordedByIds(action.stepid, action.id);
-        this.log("getActionRecordedByIds Test: " + x, "ngcHelper - actionEnd", 4)
+        this.log("getActionRecordedByIds Test: " + x, "actionEndProcessing", 1)
 
         if (x != "pending" && x != true) {
-            this.log("Here we go, recording Action no Input", "ngcHelper - actionEnd", 6)
+            this.log("Here we go, recording Action no Input", "actionEndProcessing", 2)
             let serviceName = "SaveAction";
             let actionId = action.id;
             let stepId = action.step.id;
@@ -237,21 +240,25 @@ class ngcHelper {
                     .then(data => {
                         this.setActionPending(false);
                         if (data) {
-                            this.log('Completed THX ' + serviceName + ' request - response =' + JSON.stringify(data), "ngcHelper - actionEnd", 2);
+                          this.log('Completed THX ' + serviceName, "actionEndProcessing", 2);
+                          this.log('Status: ' + data.statusText, "actionEndProcessing", 2);
+                          this.log('Response =' + JSON.stringify(data) + "\n", "actionEndProcessing", 2);
+                          
                             let saveActionData = data.data;
                             if (data.statusText === "OK" && !saveActionData.rows[0].result.includes('failed')) {
                                 this.#sxslHelper.setActionTimeStamp();
                                 this.#sxslHelper.setActionRecordedValue(action.stepid, action.id, true);
-                                this.log("Marked Status as written to TWX", "ngcHelper - actionEnd", 6);
+                                this.log("Marked Status as written to TWX", "actionEndProcessing", 6);
                                 let pdacts = this.#sxslHelper.getActionRecordedByIds(action.stepid, action.id);
-                                this.log("getActionRecordedByIds Test: " + pdacts, "ngcHelper - actionEnd", 6);
+                                this.log("getActionRecordedByIds Test: " + pdacts, "actionEndProcessing", 6);
                             } else if (saveActionData.rows[0].result.includes('failed')) {
                                 this.showIssue("Unexpected Save action failure Params= " + " sessionId=" + data.config.data.sessionId + " stepId=" + data.config.data.stepId + + " actionId=" + data.config.data.actionId + " actionInput=" + data.config.data.actionInput + "  actionName=" + data.config.data.actionName, saveActionData.rows[0].result);
                             }
                         }
                     },
                         function (status) {
-                            console.log("THX Service Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " service failed!" + "\n" + "The status returned was:  " + status + "\n");
+                            this.log("THX Service Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName, "actionEndProcessing", 2);
+                            this.log("Service failed!  The status returned was: " + status, "actionEndProcessing", 2);
                             this.showIssue("Unexpected Save action failure ", "Thingworx/PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " failed!" + "\n" + "The status returned was:  " + status + "\n" + "params =" + JSON.stringify(params));
                         }
                     )
@@ -282,9 +289,9 @@ class ngcHelper {
               if (data) {
                 let startStepData = data.data;
                 this.log('Completed THX ' + serviceName, "stepStart", 1);
-                this.log('Response: ' + JSON.stringify(data), "stepStart", 1);
                 this.log('Status: ' + data.statusText, "stepStart", 1);
-                this.log('Result: ' + startStepData.rows[0].result, "stepStart", 1);
+                this.log('Response: ' + JSON.stringify(data) + "\n", "stepStart", 1);                
+                this.log('Result: ' + startStepData.rows[0].result + "\n", "stepStart", 1);
       
                 if (data.statusText === "OK" && !startStepData.rows[0].result.includes('failed')) {
                   this.#sxslHelper.setActionTimeStamp();
@@ -378,9 +385,9 @@ actionInputDelivered = function (action) {
           if (data) {            
             let saveActionData = data.data;
             this.log('Completed THX ' + serviceName, "actionInputDelivered", 3);
-            this.log('Response: ' + JSON.stringify(data), "actionInputDelivered", 3);
             this.log('Status: ' + data.statusText, "actionInputDelivered", 3);
-            this.log('Result: ' + saveActionData.rows[0].result, "actionInputDelivered", 3);            
+            this.log('Response: ' + JSON.stringify(data) + "\n", "actionInputDelivered", 3);
+            this.log('Result: ' + saveActionData.rows[0].result + "\n", "actionInputDelivered", 3);            
   
             if (data.statusText === "OK" && !saveActionData.rows[0].result.includes('failed')) {
               this.#sxslHelper.setActionRecordedValue(action.stepid, action.id, true);   //Setting value to help when we need to capture an Action with no Input.
@@ -404,21 +411,23 @@ actionInputDelivered = function (action) {
   
   
 endProcedure = function () {
-    this.log("Procedure End:", "endProcedure", 2);  
+    this.log("Procedure End:", "endProcedure");  
     let serviceName =  "SetWorkOrderProcedureStatus" ;
     try {  
       let params = {
-        workOrderNumber: $rootScope.sxslHelper.getWorkOrder(),
-        procedureId: $rootScope.sxslHelper.getId(),
-        procedureVersion: $rootScope.sxslHelper.getVersionId(),
+        workOrderNumber: this.#sxslHelper.getWorkOrder(),
+        procedureId: this.#sxslHelper.getId(),
+        procedureVersion: this.#sxslHelper.getVersionId(),
         status : "finished"
       };
   
       this.makePostRequest(serviceName, params)
         .then(data => {
           if (data) {
-            this.log('Completed THX ' + serviceName, 'endProcedure', 2);
-            this.log('Response =' + JSON.stringify(data), 'endProcedure', 2);
+            this.log('Completed THX ' + serviceName, "endProcedure", 1);
+            this.log('Status: ' + data.statusText, "endProcedure", 1);
+            this.log('Response =' + JSON.stringify(data) + "\n", "endProcedure", 1);
+            
             let endStepData = data.data;
             if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
               // all ok 
@@ -441,6 +450,7 @@ endProcedure = function () {
   }
 
   endStep = function (sessionId, stepId, acknowledgement) {
+    this.log('Start' , "endStep");      
     try {
       let serviceName = "EndStep";    
       let params = {
@@ -451,10 +461,10 @@ endProcedure = function () {
       };
      this.makePostRequest(serviceName, params)
         .then(data => {
-          if (data) {
-            this.log('Completed THX ' + serviceName, "endStep", 2);            
-            this.log('Response =' + JSON.stringify(data), "endStep", 2);
-            this.log('Completed THX ' + serviceName + ' request - response =' + JSON.stringify(data), "endStep", 2);
+          if (data) {            
+            this.log('Completed THX ' + serviceName, "endStep", 2);
+            this.log('Status: ' + data.statusText, "endStep", 2);
+            this.log('Response =' + JSON.stringify(data) + "\n", "endStep", 2);
             let endStepData = data.data;
             if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
               // all ok 
@@ -465,7 +475,7 @@ endProcedure = function () {
           }
         },
           function (status) {
-            console.log("THX Service " + serviceName + " Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " service failed!" + "\n" + "The status returned was:  " + status + "\n");
+           this.log("THX Service " + serviceName + " Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " service failed!" + "\n" + "The status returned was:  " + status + "\n");
            this.showIssue("Unexpected EndStep failure ", "Thingworx/PTCSC.SOWI.WorkTrack.Manager/Services/" + serviceName + " failed!" + "\n" + "The status returned was:  " + status + "\n" + "params =" + JSON.stringify(params));
           }
         )

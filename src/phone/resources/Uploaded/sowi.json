@@ -234,7 +234,7 @@
                         "resources": [
                             {
                                 "mimeType": "text/plain",
-                                "text": "An Action to test the Complex Pass Fail Acknowledgement"
+                                "text": "First Action in the Step with a Complex Pass Fail acknowledgement."
                             }
                         ]
                     },
@@ -247,36 +247,25 @@
                         "resources": [
                             {
                                 "mimeType": "text/plain",
-                                "text": "Another Action with Inputs"
+                                "text": "This Action should be the \"Middle\" action of 3 in this Step.  It has No Inputs.  I used to have inputs, but not now."
                             }
                         ]
                     },
-                    "details": {
-                        "hint": {
-                            "instructions": {
-                                "resources": [
-                                    {
-                                        "mimeType": "text/plain",
-                                        "text": "Enter Text"
-                                    }
-                                ]
-                            }
-                        },
-                        "maxCaptures": "1",
-                        "ID": "",
-                        "type": "CaptureString",
-                        "title": {
-                            "resources": [
-                                {
-                                    "mimeType": "text/plain",
-                                    "text": "Basic Text Entry"
-                                }
-                            ]
-                        },
-                        "required": false
-                    },
                     "id": "37c55afd-f6ad-43ad-9949-422210d511ae",
                     "actiontitle": "LastStepLastAction",
+                    "type": "Verify"
+                },
+                {
+                    "instructions": {
+                        "resources": [
+                            {
+                                "mimeType": "text/plain",
+                                "text": "This is the very last Action of 3 Actions for this Step.  There are no Inputs for this Action."
+                            }
+                        ]
+                    },
+                    "id": "ee352d87-2283-41a6-96d5-916f973b1be3",
+                    "actiontitle": "RealLastActionofStep",
                     "type": "Verify"
                 }
             ]
